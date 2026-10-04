@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="748.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addbookcontroller">
+   <top>
+      <Label prefHeight="51.0" prefWidth="752.0" styleClass="addbook-topbar" text="Library Management System" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <AnchorPane prefHeight="418.0" prefWidth="675.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="4.0" layoutY="2.0" prefHeight="50.0" prefWidth="667.0">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/booksicon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label styleClass="page-title" text="Add Book">
+                     <HBox.margin>
+                        <Insets left="15.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label layoutX="102.0" layoutY="91.0" prefHeight="34.0" prefWidth="138.0" styleClass="addbook-txtfield" text="Book ID / ISBN " />
+            <Label layoutX="105.0" layoutY="146.0" prefHeight="37.0" prefWidth="106.0" styleClass="addbook-txtfield" text="Book Title" />
+            <Label layoutX="105.0" layoutY="203.0" prefHeight="33.0" prefWidth="68.0" styleClass="addbook-txtfield" text="Author" />
+            <Label layoutX="102.0" layoutY="310.0" prefHeight="42.0" prefWidth="87.0" styleClass="addbook-txtfield" text="Published Year " />
+            <Label layoutX="105.0" layoutY="259.0" prefHeight="32.0" prefWidth="82.0" styleClass="addbook-txtfield" text="Category" />
+            <Label layoutX="105.0" layoutY="365.0" prefHeight="35.0" prefWidth="82.0" styleClass="addbook-txtfield" text="Quantity" />
+            <TextField fx:id="txtBookId" layoutX="253.0" layoutY="88.0" prefHeight="40.0" prefWidth="185.0" />
+            <TextField fx:id="txtBookTitle" layoutX="251.0" layoutY="145.0" prefHeight="40.0" prefWidth="190.0" />
+            <TextField fx:id="txtAuthor" layoutX="251.0" layoutY="200.0" prefHeight="40.0" prefWidth="193.0" />
+            <TextField fx:id="txtCategory" layoutX="252.0" layoutY="255.0" prefHeight="40.0" prefWidth="194.0" />
+            <TextField fx:id="txtPublishYear" layoutX="251.0" layoutY="310.0" prefHeight="40.0" prefWidth="193.0" />
+            <TextField fx:id="txtQuantity" layoutX="252.0" layoutY="363.0" prefHeight="40.0" prefWidth="194.0" />
+            <Button fx:id="btnAddBook" layoutX="171.0" layoutY="438.0" mnemonicParsing="false" onAction="#addBookOnAction" prefHeight="41.0" prefWidth="118.0" text="Add Book" />
+            <Button fx:id="btnClear" layoutX="329.0" layoutY="440.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="38.0" prefWidth="115.0" text="Clear" />
+            <Button fx:id="btnBackDashboard" layoutX="497.0" layoutY="439.0" mnemonicParsing="false" onAction="#backDashboardOnAction" prefHeight="40.0" prefWidth="105.0" text="Back Dashboard" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

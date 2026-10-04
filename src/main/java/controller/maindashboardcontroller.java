@@ -35,6 +35,13 @@ public class maindashboardcontroller {
 
     @FXML
     void addBookOnActoin(ActionEvent event) {
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addbook_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
@@ -67,6 +74,7 @@ public class maindashboardcontroller {
 
     @FXML
     void manageMemberOnAction(ActionEvent event) {
+
 
     }
 

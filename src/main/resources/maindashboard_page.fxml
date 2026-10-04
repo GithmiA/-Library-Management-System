@@ -54,7 +54,7 @@
                   </VBox>
                   <VBox prefHeight="38.0" prefWidth="399.0">
                      <children>
-                        <Label prefHeight="46.0" prefWidth="414.0" styleClass="dashboard-title" text="Dashboard" />
+                        <Label prefHeight="46.0" prefWidth="414.0" styleClass="page-title" text="Dashboard" />
                      </children>
                   </VBox>
                </children>
