@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="798.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.maindashboardcontroller">
+   <top>
+      <HBox prefHeight="57.0" prefWidth="600.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="41.0" prefWidth="279.0" styleClass="title-label" text="Library Management System">
+               <HBox.margin>
+                  <Insets right="150.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#logoutOnAction" prefHeight="41.0" prefWidth="114.0" styleClass="logout-button" text="Logout">
+               <HBox.margin>
+                  <Insets left="150.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="335.0" prefWidth="177.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAddBook" mnemonicParsing="false" onAction="#addBookOnActoin" prefHeight="44.0" prefWidth="126.0" styleClass="sidebar-button" text="Add Book" />
+            <Button fx:id="btnAddMember" mnemonicParsing="false" onAction="#addMemberOnActoin" prefHeight="42.0" prefWidth="124.0" styleClass="sidebar-button" text="Add Member " />
+            <Button fx:id="btnManageMembers" mnemonicParsing="false" onAction="#manageMemberOnAction" prefHeight="44.0" prefWidth="155.0" styleClass="sidebar-button" text=" Manage Members" />
+            <Button fx:id="btnIssueBook" mnemonicParsing="false" onAction="#issueBookOnAction" prefHeight="37.0" prefWidth="122.0" styleClass="sidebar-button" text="Issue Book" />
+            <Button fx:id="btnReturnBook" mnemonicParsing="false" onAction="#returnBookOnAction" prefHeight="39.0" prefWidth="123.0" styleClass="sidebar-button" text="Return Book" />
+            <Button fx:id="btnBorrowingHistory" mnemonicParsing="false" onAction="#borrowingHistoryOnAction" prefHeight="44.0" prefWidth="162.0" styleClass="sidebar-button" text="Borrowing History" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="446.0" prefWidth="539.0" styleClass="content" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="38.0" prefWidth="456.0">
+               <children>
+                  <VBox prefHeight="34.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/homepageicon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="38.0" prefWidth="399.0">
+                     <children>
+                        <Label prefHeight="46.0" prefWidth="414.0" styleClass="dashboard-title" text="Dashboard" />
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="183.0" prefWidth="445.0">
+                     <children>
+                        <VBox prefHeight="183.0" prefWidth="138.0" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="69.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/booksicon.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" top="20.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label prefHeight="35.0" prefWidth="91.0" styleClass="card-title" text="Total Books">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="39.0" styleClass="card-number" text="30">
+                                 <VBox.margin>
+                                    <Insets left="37.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="183.0" prefWidth="122.0" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/addusericon.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="25.0" top="35.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label prefHeight="23.0" prefWidth="85.0" styleClass="card-title" text="Total Members">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="34.0" styleClass="card-number" text="15">
+                                 <VBox.margin>
+                                    <Insets left="25.0" top="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="183.0" prefWidth="142.0" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/calenadaricon.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="20.0" top="35.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label prefHeight="25.0" prefWidth="125.0" styleClass="card-title" text="Currently Borrowed">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="40.0" prefWidth="38.0" styleClass="card-number" text="10">
+                                 <VBox.margin>
+                                    <Insets left="25.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox prefHeight="183.0" prefWidth="122.0" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Invaliddata_img.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" top="30.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label styleClass="card-title" text="Overdue Books">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="18.0" prefWidth="29.0" styleClass="card-number" text="3">
+                                 <VBox.margin>
+                                    <Insets left="30.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="87.0" prefWidth="491.0" styleClass="welcome-panel">
+               <children>
+                  <Label prefHeight="46.0" prefWidth="442.0" styleClass="welcome-title" text="Welcome to Library Management System " />
+                  <Label styleClass="welcome-text" text="Manage your library resources efficiently" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
