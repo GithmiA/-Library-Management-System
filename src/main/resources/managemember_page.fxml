@@ -51,11 +51,7 @@
                   <TableColumn fx:id="actionColumn" prefWidth="163.9999877929688" text="Action" />
               </columns>
             </TableView>
-            <Button fx:id="btnPrevious" layoutX="424.0" layoutY="409.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="35.0" text="&lt;" />
-            <Button fx:id="btnpage1" layoutX="474.0" layoutY="409.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="33.0" text="1" />
-            <Button fx:id="btnpage2" layoutX="521.0" layoutY="409.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="34.0" text="2" />
-            <Button fx:id="btnNext" layoutX="566.0" layoutY="409.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="31.0" text="&gt;" />
-            <Button fx:id="btnBack" layoutX="613.0" layoutY="409.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="27.0" prefWidth="120.0" text="Back to Dashboard" />
+            <Button fx:id="btnBack" layoutX="521.0" layoutY="407.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="42.0" prefWidth="150.0" text="Back to Dashboard" />
          </children>
       </AnchorPane>
    </left>

@@ -67,18 +67,18 @@
                   </VBox>
                   <VBox prefHeight="266.0" prefWidth="197.0" styleClass="page-title">
                      <children>
-                        <Label fx:id="lblMemberId" prefHeight="38.0" prefWidth="201.0" styleClass="addbook-txtfield" text="MOO1">
+                        <Label fx:id="lblMemberId" prefHeight="38.0" prefWidth="201.0" styleClass="addbook-txtfield" text="">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="lblFullName" prefHeight="35.0" prefWidth="205.0" styleClass="addbook-txtfield" text="GITHMI" />
-                        <Label fx:id="lblPhoneNumber" prefHeight="35.0" prefWidth="202.0" styleClass="addbook-txtfield" text="Label">
+                        <Label fx:id="lblFullName" prefHeight="35.0" prefWidth="205.0" styleClass="addbook-txtfield" text="" />
+                        <Label fx:id="lblPhoneNumber" prefHeight="35.0" prefWidth="202.0" styleClass="addbook-txtfield" text="">
                            <VBox.margin>
                               <Insets left="10.0" top="9.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="lblStatus" prefHeight="38.0" prefWidth="206.0" styleClass="status-label" text="Label">
+                        <Label fx:id="lblStatus" prefHeight="38.0" prefWidth="206.0" styleClass="status-label" text="">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -96,17 +96,17 @@
                   </VBox>
                   <VBox prefHeight="266.0" prefWidth="205.0" styleClass="addbook-txtfield">
                      <children>
-                        <Label fx:id="lblBookTitle" prefHeight="36.0" prefWidth="206.0" styleClass="addbook-txtfield" text="hgfd">
+                        <Label fx:id="lblBookTitle" prefHeight="36.0" prefWidth="206.0" styleClass="addbook-txtfield" text="">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="lblBorrowedDate" prefHeight="38.0" prefWidth="216.0" styleClass="addbook-txtfield" text="Label">
+                        <Label fx:id="lblBorrowedDate" prefHeight="38.0" prefWidth="216.0" styleClass="addbook-txtfield" text="">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="lblDueDate" prefHeight="34.0" prefWidth="206.0" styleClass="addbook-txtfield" text="Label">
+                        <Label fx:id="lblDueDate" prefHeight="34.0" prefWidth="206.0" styleClass="addbook-txtfield" text="">
                            <padding>
                               <Insets top="3.0" />
                            </padding>

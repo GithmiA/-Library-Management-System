@@ -34,16 +34,16 @@
                   </Label>
                </children>
             </HBox>
-            <Label fx:id="txtMemberId" layoutX="198.0" layoutY="93.0" styleClass="addbook-txtfield" text="Member Id" />
-            <Label fx:id="txtFullName" layoutX="199.0" layoutY="144.0" styleClass="addbook-txtfield" text="Full Name " />
-            <Label fx:id="txtxEmail" layoutX="199.0" layoutY="192.0" styleClass="addbook-txtfield" text="Email" />
-            <Label fx:id="txtPhoneNumber" layoutX="198.0" layoutY="242.0" styleClass="addbook-txtfield" text="Phone Number" />
-            <Label fx:id="txtxAddress" layoutX="198.0" layoutY="293.0" styleClass="addbook-txtfield" text="Address" />
-            <TextField layoutX="300.0" layoutY="82.0" />
-            <TextField layoutX="300.0" layoutY="133.0" />
-            <TextField layoutX="300.0" layoutY="181.0" />
-            <TextField layoutX="300.0" layoutY="231.0" />
-            <TextField layoutX="300.0" layoutY="282.0" />
+            <Label layoutX="198.0" layoutY="93.0" styleClass="addbook-txtfield" text="Member Id" />
+            <Label layoutX="199.0" layoutY="144.0" styleClass="addbook-txtfield" text="Full Name " />
+            <Label layoutX="199.0" layoutY="192.0" styleClass="addbook-txtfield" text="Email" />
+            <Label layoutX="198.0" layoutY="242.0" styleClass="addbook-txtfield" text="Phone Number" />
+            <Label layoutX="198.0" layoutY="293.0" styleClass="addbook-txtfield" text="Address" />
+            <TextField fx:id="txtMemberId" layoutX="300.0" layoutY="82.0" />
+            <TextField fx:id="txtFullName" layoutX="300.0" layoutY="133.0" />
+            <TextField fx:id="txtEmail" layoutX="300.0" layoutY="181.0" />
+            <TextField fx:id="txtPhoneNumber" layoutX="300.0" layoutY="231.0" />
+            <TextField fx:id="txtAddress" layoutX="300.0" layoutY="282.0" />
             <Button fx:id="btnAddMember" layoutX="216.0" layoutY="358.0" mnemonicParsing="false" onAction="#addMemberOnAction" prefHeight="42.0" prefWidth="120.0" text="Add Member" />
             <Button fx:id="btnClear" layoutX="357.0" layoutY="358.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="42.0" prefWidth="88.0" text="Clear" />
             <Button fx:id="btnBack" layoutX="458.0" layoutY="358.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="43.0" prefWidth="139.0" text="Back to Dashboard" />

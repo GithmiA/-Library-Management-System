@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Member;
+import model.MemberStore;
 
 import java.io.IOException;
 
@@ -23,47 +25,63 @@ public class addmemberpagecontroller {
     private Button btnClear;
 
     @FXML
-    private Label txtFullName;
+    private TextField txtAddress;
 
     @FXML
-    private Label txtMemberId;
+    private TextField txtEmail;
 
     @FXML
-    private Label txtPhoneNumber;
+    private TextField txtFullName;
 
     @FXML
-    private Label txtxAddress;
+    private TextField txtMemberId;
 
     @FXML
-    private Label txtxEmail;
+    private TextField txtPhoneNumber;
 
     @FXML
     void addMemberOnAction(ActionEvent event) {
+        String memberId = txtMemberId.getText();
+        String fullName = txtFullName.getText();
+        String email = txtEmail.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String address = txtAddress.getText();
 
+        Member member = new Member(memberId,fullName,email,phoneNumber,address);
+
+        MemberStore.members.add(member);
+        System.out.println("Member Added!");
+
+        clearField();
+    }
+    private void clearField(){
+        txtMemberId.clear();
+        txtFullName.clear();
+        txtEmail.clear();
+        txtPhoneNumber.clear();
+        txtAddress.clear();
     }
 
     @FXML
     void backOnAction(ActionEvent event) {
-        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
-
     }
 
     @FXML
     void clearOnAction(ActionEvent event) {
-        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addmember_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
-
     }
 
 }
