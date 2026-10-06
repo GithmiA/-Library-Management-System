@@ -6,47 +6,37 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class addbookcontroller {
+public class issuebookcontroller {
 
     @FXML
-    private Button btnAddBook;
-
-    @FXML
-    private Button btnBackDashboard;
+    private Button btnBack;
 
     @FXML
     private Button btnClear;
 
     @FXML
-    private TextField txtAuthor;
+    private Button btnIssueBook;
 
     @FXML
-    private TextField txtBookId;
+    private DatePicker txtDueDate;
 
     @FXML
-    private TextField txtBookTitle;
+    private DatePicker txtIssueBook;
 
     @FXML
-    private TextField txtCategory;
+    private ComboBox<?> txtSelectBook;
 
     @FXML
-    private TextField txtPublishYear;
+    private ComboBox<?> txtSelectMemeber;
 
     @FXML
-    private TextField txtQuantity;
-
-    @FXML
-    void addBookOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void backDashboardOnAction(ActionEvent event) {
+    void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
@@ -59,13 +49,18 @@ public class addbookcontroller {
 
     @FXML
     void clearOnAction(ActionEvent event) {
-        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/issuebook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
+
+    }
+
+    @FXML
+    void issueBookOnAction(ActionEvent event) {
 
     }
 

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="566.0" prefWidth="751.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.returnbookcontroller">
+   <top>
+      <Label prefHeight="51.0" prefWidth="759.0" styleClass="addbook-topbar" text=" Library Management System " BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="6.0" prefHeight="54.0" prefWidth="582.0">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/undo%20-%20Copy.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="25.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label styleClass="page-title" text="Return Book">
+                     <HBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label layoutX="39.0" layoutY="64.0" prefHeight="18.0" prefWidth="290.0" styleClass="returnbook-title" text="Search or select borrowed book" />
+            <TextField layoutX="39.0" layoutY="92.0" prefHeight="40.0" prefWidth="538.0" promptText="Search by ISBN" />
+            <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="588.0" layoutY="93.0" onMouseClicked="#searchBook" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/search.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="58.0" layoutY="194.0" prefHeight="199.0" prefWidth="651.0">
+               <children>
+                  <VBox prefHeight="266.0" prefWidth="99.0">
+                     <children>
+                        <Label prefHeight="38.0" prefWidth="116.0" styleClass="addbook-txtfield" text="Member Id :">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="37.0" prefWidth="92.0" styleClass="addbook-txtfield" text="Full Name :">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Label prefHeight="46.0" prefWidth="98.0" styleClass="addbook-txtfield" text="Phone Number :" />
+                        <Label styleClass="addbook-txtfield" text="Status :">
+                           <VBox.margin>
+                              <Insets left="20.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="266.0" prefWidth="197.0" styleClass="page-title">
+                     <children>
+                        <Label fx:id="lblMemberId" prefHeight="38.0" prefWidth="201.0" styleClass="addbook-txtfield" text="MOO1">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblFullName" prefHeight="35.0" prefWidth="205.0" styleClass="addbook-txtfield" text="GITHMI" />
+                        <Label fx:id="lblPhoneNumber" prefHeight="35.0" prefWidth="202.0" styleClass="addbook-txtfield" text="Label">
+                           <VBox.margin>
+                              <Insets left="10.0" top="9.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblStatus" prefHeight="38.0" prefWidth="206.0" styleClass="status-label" text="Label">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="266.0" prefWidth="107.0">
+                     <children>
+                        <Label />
+                        <Label prefHeight="38.0" prefWidth="81.0" styleClass="addbook-txtfield" text="Book Title :" />
+                        <Label prefHeight="38.0" prefWidth="94.0" styleClass="addbook-txtfield" text="Borrowed date :" />
+                        <Label prefHeight="40.0" prefWidth="79.0" styleClass="addbook-txtfield" text="Due date :" />
+                        <Label prefHeight="35.0" prefWidth="86.0" styleClass="addbook-txtfield" text="Return date  :" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="266.0" prefWidth="205.0" styleClass="addbook-txtfield">
+                     <children>
+                        <Label fx:id="lblBookTitle" prefHeight="36.0" prefWidth="206.0" styleClass="addbook-txtfield" text="hgfd">
+                           <VBox.margin>
+                              <Insets top="16.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblBorrowedDate" prefHeight="38.0" prefWidth="216.0" styleClass="addbook-txtfield" text="Label">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="lblDueDate" prefHeight="34.0" prefWidth="206.0" styleClass="addbook-txtfield" text="Label">
+                           <padding>
+                              <Insets top="3.0" />
+                           </padding>
+                        </Label>
+                        <DatePicker fx:id="dpReturnDate" />
+                     </children></VBox>
+               </children>
+            </HBox>
+            <Label layoutX="58.0" layoutY="150.0" prefHeight="38.0" prefWidth="261.0" styleClass="returnbook-title" text="Member information" />
+            <Label layoutX="415.0" layoutY="150.0" prefHeight="38.0" prefWidth="192.0" styleClass="returnbook-title" text="Book information" />
+            <Button fx:id="btnReturn" layoutX="137.0" layoutY="411.0" mnemonicParsing="false" onAction="#returnOnAction" prefHeight="38.0" prefWidth="77.0" text="Return" />
+            <Button fx:id="btnClear" layoutX="256.0" layoutY="411.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="37.0" prefWidth="68.0" text="Clear" />
+            <Button fx:id="btnBack" layoutX="376.0" layoutY="411.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="38.0" prefWidth="142.0" text="Back to Dashboard" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

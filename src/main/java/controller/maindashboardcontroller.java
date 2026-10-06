@@ -47,6 +47,13 @@ public class maindashboardcontroller {
 
     @FXML
     void addMemberOnActoin(ActionEvent event) {
+        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addmember_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
@@ -57,6 +64,13 @@ public class maindashboardcontroller {
 
     @FXML
     void issueBookOnAction(ActionEvent event) {
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/issuebook_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
@@ -80,6 +94,13 @@ public class maindashboardcontroller {
 
     @FXML
     void returnBookOnAction(ActionEvent event) {
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/returnbook_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 

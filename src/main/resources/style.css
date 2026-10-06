@@ -175,3 +175,11 @@
     -fx-font-weight: bold;
     -fx-margin: 8px;
 }
+.returnbook-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+.status-label {
+    -fx-text-fill: E03210;
+    -fx-font-size: 12px;
+}

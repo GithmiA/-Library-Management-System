@@ -6,47 +6,50 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class addbookcontroller {
+public class returnbookcontroller {
 
     @FXML
-    private Button btnAddBook;
-
-    @FXML
-    private Button btnBackDashboard;
+    private Button btnBack;
 
     @FXML
     private Button btnClear;
 
     @FXML
-    private TextField txtAuthor;
+    private Button btnReturn;
 
     @FXML
-    private TextField txtBookId;
+    private DatePicker dpReturnDate;
 
     @FXML
-    private TextField txtBookTitle;
+    private Label lblBookTitle;
 
     @FXML
-    private TextField txtCategory;
+    private Label lblBorrowedDate;
 
     @FXML
-    private TextField txtPublishYear;
+    private Label lblDueDate;
 
     @FXML
-    private TextField txtQuantity;
+    private Label lblFullName;
 
     @FXML
-    void addBookOnAction(ActionEvent event) {
-
-    }
+    private Label lblMemberId;
 
     @FXML
-    void backDashboardOnAction(ActionEvent event) {
+    private Label lblPhoneNumber;
+
+    @FXML
+    private Label lblStatus;
+
+    @FXML
+    void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
@@ -59,13 +62,23 @@ public class addbookcontroller {
 
     @FXML
     void clearOnAction(ActionEvent event) {
-        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/returnbook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
+
+    }
+
+    @FXML
+    void returnOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchBook(MouseEvent event) {
 
     }
 

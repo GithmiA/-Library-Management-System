@@ -6,48 +6,45 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class addbookcontroller {
+public class addmemberpagecontroller {
 
     @FXML
-    private Button btnAddBook;
+    private Button btnAddMember;
 
     @FXML
-    private Button btnBackDashboard;
+    private Button btnBack;
 
     @FXML
     private Button btnClear;
 
     @FXML
-    private TextField txtAuthor;
+    private Label txtFullName;
 
     @FXML
-    private TextField txtBookId;
+    private Label txtMemberId;
 
     @FXML
-    private TextField txtBookTitle;
+    private Label txtPhoneNumber;
 
     @FXML
-    private TextField txtCategory;
+    private Label txtxAddress;
 
     @FXML
-    private TextField txtPublishYear;
+    private Label txtxEmail;
 
     @FXML
-    private TextField txtQuantity;
-
-    @FXML
-    void addBookOnAction(ActionEvent event) {
+    void addMemberOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void backDashboardOnAction(ActionEvent event) {
-        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
+    void backOnAction(ActionEvent event) {
+        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
         } catch (IOException e) {
@@ -61,7 +58,7 @@ public class addbookcontroller {
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addmember_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
