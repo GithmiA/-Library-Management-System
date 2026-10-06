@@ -59,6 +59,13 @@ public class maindashboardcontroller {
 
     @FXML
     void borrowingHistoryOnAction(ActionEvent event) {
+        Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/borrowinghistory_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
     }
 
@@ -88,6 +95,13 @@ public class maindashboardcontroller {
 
     @FXML
     void manageMemberOnAction(ActionEvent event) {
+        Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/managemember_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
 
 
     }

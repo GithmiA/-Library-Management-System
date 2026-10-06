@@ -85,7 +85,7 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox prefHeight="266.0" prefWidth="107.0">
+                  <VBox prefHeight="199.0" prefWidth="103.0">
                      <children>
                         <Label />
                         <Label prefHeight="38.0" prefWidth="81.0" styleClass="addbook-txtfield" text="Book Title :" />
@@ -116,7 +116,7 @@
                </children>
             </HBox>
             <Label layoutX="58.0" layoutY="150.0" prefHeight="38.0" prefWidth="261.0" styleClass="returnbook-title" text="Member information" />
-            <Label layoutX="415.0" layoutY="150.0" prefHeight="38.0" prefWidth="192.0" styleClass="returnbook-title" text="Book information" />
+            <Label layoutX="365.0" layoutY="150.0" prefHeight="38.0" prefWidth="192.0" styleClass="returnbook-title" text="Book information" />
             <Button fx:id="btnReturn" layoutX="137.0" layoutY="411.0" mnemonicParsing="false" onAction="#returnOnAction" prefHeight="38.0" prefWidth="77.0" text="Return" />
             <Button fx:id="btnClear" layoutX="256.0" layoutY="411.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="37.0" prefWidth="68.0" text="Clear" />
             <Button fx:id="btnBack" layoutX="376.0" layoutY="411.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="38.0" prefWidth="142.0" text="Back to Dashboard" />
