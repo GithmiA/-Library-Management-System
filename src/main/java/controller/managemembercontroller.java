@@ -74,16 +74,39 @@ public class managemembercontroller {
         });
 
         loadMember();
-        setUpActionColumn();
+
+        txtSearchById.textProperty().addListener((observable,oldValue, newValue) -> {
+            if (newValue.trim().isEmpty()) {
+                loadMember();
+            }
+        });
+
     }
     private void loadMember(){
         ObservableList<Member> memberList = FXCollections.observableArrayList(MemberStore.members);
         memberTable.setItems(memberList);
+
+        setUpActionColumn();
+        memberTable.refresh();
     }
     private void setUpActionColumn(){
-        actionColumn.setCellFactory(column -> new TableCell<>(){
+        actionColumn.setCellFactory(column -> new TableCell<Member,Void>(){
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");
+
+            private final HBox buttons=new HBox(5);
+            {
+                buttons.getChildren().addAll(editButton,deleteButton);
+                editButton.setOnAction(event -> {
+                    Member member=getTableView().getItems().get(getIndex());
+                    editMember(member);
+                });
+                deleteButton.setOnAction(event -> {
+                    Member member=getTableView().getItems().get(getIndex());
+                    MemberStore.members.remove(member);
+                    getTableView().getItems().remove(member);
+                });
+            }
 
             @Override
             protected void updateItem(Void item,boolean empty){
@@ -91,16 +114,6 @@ public class managemembercontroller {
                 if(empty){
                     setGraphic(null);
                 }else {
-                    Member member=getTableView().getItems().get(getIndex());
-                    editButton.setOnAction(event -> {
-                        editMember(member);
-                    });
-                    deleteButton.setOnAction(event -> {
-                        MemberStore.members.remove(member);
-                        getTableView().getItems().remove(member);
-                    });
-                    HBox buttons=new HBox(5);
-                    buttons.getChildren().addAll(editButton,deleteButton);
                     setGraphic(buttons);
                 }
             }
@@ -125,7 +138,18 @@ public class managemembercontroller {
 
     @FXML
     void searchById(MouseEvent event) {
+        String searchId = txtSearchById.getText().trim();
 
+        ObservableList<Member> memberList = FXCollections.observableArrayList(MemberStore.members);
+        ObservableList<Member> searchResult = FXCollections.observableArrayList();
+
+        for (Member member : memberList){
+            if(member.getMemberId().equalsIgnoreCase(searchId)){
+
+                searchResult.add(member);
+            }
+        }
+memberTable.setItems(searchResult);
     }
 
 }
