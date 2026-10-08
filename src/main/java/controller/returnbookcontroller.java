@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Borrowing;
@@ -101,7 +98,11 @@ public class returnbookcontroller {
         selectedBorrowing.setStatus("Returned");
 
         lblStatus.setText("Returned");
-        System.out.println("Book returned successfully!");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Book returned successfully!");
+        alert.showAndWait();
 
     }
 
@@ -126,7 +127,11 @@ public class returnbookcontroller {
         if(selectedBorrowing != null) {
             showBorrowingDetails();
         } else {
-            System.out.println("Borrowed book not fount");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("OOPS");
+            alert.setHeaderText(null);
+            alert.setContentText("Book not found!");
+            alert.showAndWait();
         }
     }
 

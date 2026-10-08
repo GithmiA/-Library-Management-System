@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -72,7 +73,11 @@ public class issuebookcontroller {
         }
         Borrowing borrowing = new Borrowing(member.getMemberId(), member.getFullName(), book.getBookId(), book.getBookTitle(), txtIssueBook.getValue().toString(),txtDueDate.getValue().toString());
         BorrowingStore.borrowings.add(borrowing);
-        System.out.println("Book issued Successfully!");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Book issued Successfully!");
+        alert.showAndWait();
         clearFields();
 
     }
