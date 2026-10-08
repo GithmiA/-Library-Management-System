@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class maindashboardcontroller {
 
@@ -32,6 +35,50 @@ public class maindashboardcontroller {
 
     @FXML
     private Button btnReturnBook;
+
+    @FXML
+    private Label lblTotalBook;
+
+    @FXML
+    private Label lblTotalMembers;
+
+    @FXML
+    private Label lblCurrentlyBorrowing;
+
+    @FXML
+    private Label lblOverdueBooks;
+
+    @FXML
+    public void initialize() {
+        int totalBooks =0;
+
+        for(Book book : BookStore.books) {
+            totalBooks += book.getQuantity();
+        }
+        lblTotalBook.setText(String.valueOf(totalBooks));
+
+        int totalMembers = MemberStore.members.size();
+        lblTotalMembers.setText(String.valueOf(totalMembers));
+
+        int currentlyBorrowing = 0;
+        int overdueBooks = 0;
+
+        LocalDate today = LocalDate.now();
+        for (Borrowing borrowing : BorrowingStore.borrowings){
+            if (borrowing.getStatus().equals("Borrowed")) {
+                currentlyBorrowing++;
+                LocalDate dueDate = LocalDate.parse(borrowing.getDueDate());
+                if(dueDate.isBefore(today)) {
+                    overdueBooks++;
+                }
+            }
+        }
+        lblCurrentlyBorrowing.setText(String.valueOf(currentlyBorrowing));
+        lblOverdueBooks.setText(String.valueOf(overdueBooks));
+    }
+
+
+
 
     @FXML
     void addBookOnActoin(ActionEvent event) {

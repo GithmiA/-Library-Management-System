@@ -58,4 +58,9 @@ public class Member {
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public String toString() {
+        return memberId + " -" + fullName;
+    }
 }

@@ -81,7 +81,7 @@
                                     <Insets left="15.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label prefHeight="18.0" prefWidth="39.0" styleClass="card-number" text="30">
+                              <Label fx:id="lblTotalBook" prefHeight="18.0" prefWidth="39.0" styleClass="card-number">
                                  <VBox.margin>
                                     <Insets left="37.0" />
                                  </VBox.margin>
@@ -106,7 +106,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label prefHeight="18.0" prefWidth="34.0" styleClass="card-number" text="15">
+                              <Label fx:id="lblTotalMembers" prefHeight="18.0" prefWidth="34.0" styleClass="card-number">
                                  <VBox.margin>
                                     <Insets left="25.0" top="3.0" />
                                  </VBox.margin>
@@ -131,7 +131,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label prefHeight="40.0" prefWidth="38.0" styleClass="card-number" text="10">
+                              <Label fx:id="lblCurrentlyBorrowing" prefHeight="40.0" prefWidth="38.0" styleClass="card-number">
                                  <VBox.margin>
                                     <Insets left="25.0" top="5.0" />
                                  </VBox.margin>
@@ -156,7 +156,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </Label>
-                              <Label prefHeight="18.0" prefWidth="29.0" styleClass="card-number" text="3">
+                              <Label fx:id="lblOverdueBooks" prefHeight="18.0" prefWidth="29.0" styleClass="card-number">
                                  <VBox.margin>
                                     <Insets left="30.0" top="5.0" />
                                  </VBox.margin>

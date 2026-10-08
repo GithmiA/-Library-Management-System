@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,36 +10,39 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.Borrowing;
+import model.BorrowingStore;
 
 import java.io.IOException;
 
 public class borrowinghistorycontroller {
 
     @FXML
-    private TableColumn<?, ?> bookTitleColumn;
+    private TableColumn<Borrowing, String> bookTitleColumn;
 
     @FXML
     private Button btnBack;
 
     @FXML
-    private TableColumn<?, ?> dueDateColumn;
+    private TableColumn<Borrowing, String> dueDateColumn;
 
     @FXML
-    private TableColumn<?, ?> issueDateColumn;
+    private TableColumn<Borrowing, String> issueDateColumn;
 
     @FXML
-    private TableColumn<?, ?> memeberIdColumn;
+    private TableColumn<Borrowing, String> memberIdColumn;
 
     @FXML
-    private TableColumn<?, ?> returnDateColumn;
+    private TableColumn<Borrowing, String> returnDateColumn;
 
     @FXML
-    private TableColumn<?, ?> statusColumn;
+    private TableColumn<Borrowing, String> statusColumn;
 
     @FXML
-    private TableView<?> tblTableView;
+    private TableView<Borrowing> tblTableView;
 
     @FXML
     private TextField txtSearchById;
@@ -57,7 +61,32 @@ public class borrowinghistorycontroller {
 
     @FXML
     void searchOnAction(MouseEvent event) {
+        String searchId = txtSearchById.getText().trim();
 
+        if(searchId.isEmpty()) {
+            tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
+            return;
+        }
+        FXCollections.observableArrayList();
+
+        javafx.collections.ObservableList<Borrowing> searchResult = FXCollections.observableArrayList();
+        for (Borrowing borrowing : BorrowingStore.borrowings) {
+            if(borrowing.getMemberId().equalsIgnoreCase(searchId)) {
+                searchResult.add(borrowing);
+            }
+        }
+tblTableView.setItems(searchResult);
+    }
+    @FXML
+    public void initialize() {
+        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        bookTitleColumn.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
+        issueDateColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
     }
 
 }

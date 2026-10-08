@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
+import model.*;
 
 import java.io.IOException;
 
@@ -30,10 +32,10 @@ public class issuebookcontroller {
     private DatePicker txtIssueBook;
 
     @FXML
-    private ComboBox<?> txtSelectBook;
+    private ComboBox<Book> txtSelectBook;
 
     @FXML
-    private ComboBox<?> txtSelectMemeber;
+    private ComboBox<Member> txtSelectMemeber;
 
     @FXML
     void backOnAction(ActionEvent event) {
@@ -61,7 +63,32 @@ public class issuebookcontroller {
 
     @FXML
     void issueBookOnAction(ActionEvent event) {
+        Book book = txtSelectBook.getValue();
+        Member member = txtSelectMemeber.getValue();
 
+        if (book == null || member == null || txtIssueBook.getValue() == null || txtDueDate.getValue() == null){
+            System.out.println("select all details");
+            return;
+        }
+        Borrowing borrowing = new Borrowing(member.getMemberId(), member.getFullName(), book.getBookId(), book.getBookTitle(), txtIssueBook.getValue().toString(),txtDueDate.getValue().toString());
+        BorrowingStore.borrowings.add(borrowing);
+        System.out.println("Book issued Successfully!");
+        clearFields();
+
+    }
+
+    private void clearFields() {
+        txtSelectBook.getSelectionModel().clearSelection();
+        txtSelectMemeber.getSelectionModel().clearSelection();
+        txtIssueBook.setValue(null);
+        txtDueDate.setValue(null);
+    }
+
+    @FXML
+    public void initialize(){
+
+        txtSelectBook.setItems(FXCollections.observableArrayList(BookStore.books));
+        txtSelectMemeber.setItems(FXCollections.observableArrayList(MemberStore.members));
     }
 
 }

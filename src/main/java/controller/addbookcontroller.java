@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Book;
+import model.BookStore;
 
 import java.io.IOException;
 
@@ -42,7 +44,29 @@ public class addbookcontroller {
 
     @FXML
     void addBookOnAction(ActionEvent event) {
+        String bookId = txtBookId.getText();
+        String bookTitle = txtBookTitle.getText();
+        String author = txtAuthor.getText();
+        String category = txtCategory.getText();
+        String publishedYear = txtPublishYear.getText();
+        int quantity = Integer.parseInt(txtQuantity.getText());
 
+        Book book = new Book(bookId,bookTitle,author,category,publishedYear,quantity);
+
+        BookStore.books.add(book);
+        System.out.println("Book Added!");
+
+        clearField();
+
+    }
+
+    private void clearField() {
+        txtBookId.clear();
+        txtBookTitle.clear();
+        txtAuthor.clear();
+        txtCategory.clear();
+        txtPublishYear.clear();
+        txtQuantity.clear();
     }
 
     @FXML

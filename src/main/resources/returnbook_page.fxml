@@ -37,7 +37,7 @@
                </children>
             </HBox>
             <Label layoutX="39.0" layoutY="64.0" prefHeight="18.0" prefWidth="290.0" styleClass="returnbook-title" text="Search or select borrowed book" />
-            <TextField layoutX="39.0" layoutY="92.0" prefHeight="40.0" prefWidth="538.0" promptText="Search by ISBN" />
+            <TextField fx:id="txtSearchBox" layoutX="39.0" layoutY="92.0" prefHeight="40.0" prefWidth="538.0" promptText="Search by ISBN" />
             <ImageView fitHeight="44.0" fitWidth="38.0" layoutX="588.0" layoutY="93.0" onMouseClicked="#searchBook" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/search.png" />
