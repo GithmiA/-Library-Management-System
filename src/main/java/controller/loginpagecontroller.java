@@ -29,6 +29,7 @@ public class loginpagecontroller {
     @FXML
     private TextField txtusername;
 
+    logincontroller Logincontroller = new logincontroller();
     @FXML
     void clearOnAction(ActionEvent event) {
 
@@ -36,7 +37,7 @@ public class loginpagecontroller {
 
     @FXML
     void loginOnAction(ActionEvent event) {
-        if(logincontroller.nameandpasswordcheck(txtusername.getText(),txtpassword.getText())){
+        if(Logincontroller.nameandpasswordcheck(txtusername.getText(),txtpassword.getText())){
             Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
             try {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
