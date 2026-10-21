@@ -14,7 +14,6 @@ public class Addbookcontroller {
 
     public void addStudent(String bookId,String bookTitle,String bookAuthor,String bookCategory,Integer bookPublishYear,Integer bookQuantity) {
 
-        System.out.println(connection);
 
         String SQL = "INSERT INTO books(book_id,book_title,author,category,publish_year,quantity) VALUES (?,?,?,?,?,?);";
 

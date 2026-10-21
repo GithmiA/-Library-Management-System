@@ -40,22 +40,12 @@ public class Addmemberpagecontroller {
     @FXML
     private TextField txtPhoneNumber;
 
+    Addmembercontroller addmembercontroller = new Addmembercontroller();
+
     @FXML
     void addMemberOnAction(ActionEvent event) {
-        String memberId = txtMemberId.getText();
-        String fullName = txtFullName.getText();
-        String email = txtEmail.getText();
-        String phoneNumber = txtPhoneNumber.getText();
-        String address = txtAddress.getText();
 
-        Member member = new Member(memberId,fullName,email,phoneNumber,address);
-
-        MemberStore.members.add(member);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Member Added Successfully!");
-        alert.showAndWait();
+        addmembercontroller.addMember(txtMemberId.getText(),txtFullName.getText(),txtEmail.getText(),txtPhoneNumber.getText(),txtAddress.getText());
 
         clearField();
     }

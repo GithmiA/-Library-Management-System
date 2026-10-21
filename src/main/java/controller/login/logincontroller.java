@@ -11,7 +11,6 @@ public class logincontroller {
 
     public boolean nameandpasswordcheck(String name, String password) {
 
-        System.out.println(connection);
         String SQL = "SELECT * FROM users;";
 
         try {
@@ -28,7 +27,6 @@ public class logincontroller {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
 
         return false;
     }
