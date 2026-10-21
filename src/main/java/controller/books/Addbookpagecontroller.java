@@ -1,4 +1,4 @@
-package controller;
+package controller.books;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,12 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Book;
-import model.BookStore;
 
 import java.io.IOException;
 
-public class addbookcontroller {
+public class Addbookpagecontroller {
 
     @FXML
     private Button btnAddBook;
@@ -43,26 +41,13 @@ public class addbookcontroller {
     @FXML
     private TextField txtQuantity;
 
+     Addbookcontroller addbookcontroller = new Addbookcontroller();
+
     @FXML
     void addBookOnAction(ActionEvent event) {
-        String bookId = txtBookId.getText();
-        String bookTitle = txtBookTitle.getText();
-        String author = txtAuthor.getText();
-        String category = txtCategory.getText();
-        String publishedYear = txtPublishYear.getText();
-        int quantity = Integer.parseInt(txtQuantity.getText());
 
-        Book book = new Book(bookId,bookTitle,author,category,publishedYear,quantity);
-
-        BookStore.books.add(book);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Book Added Successfully!");
-        alert.showAndWait();
-
+        addbookcontroller.addStudent(txtBookId.getText(),txtBookTitle.getText(),txtAuthor.getText(),txtCategory.getText(),Integer.parseInt(txtPublishYear.getText()),Integer.parseInt(txtQuantity.getText()));
         clearField();
-
     }
 
     private void clearField() {

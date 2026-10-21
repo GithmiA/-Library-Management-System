@@ -1,4 +1,4 @@
-package controller;
+package controller.books;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@ import model.BorrowingStore;
 
 import java.io.IOException;
 
-public class borrowinghistorycontroller {
+public class Borrowinghistorycontroller {
 
     @FXML
     private TableColumn<Borrowing, String> bookTitleColumn;

@@ -1,4 +1,4 @@
-package controller;
+package controller.members;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +19,7 @@ import model.MemberStore;
 
 import java.io.IOException;
 
-public class managemembercontroller {
+public class Managemembercontroller {
 
     @FXML
     private TableColumn<Member,Void> actionColumn;

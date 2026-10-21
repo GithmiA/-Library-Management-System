@@ -1,4 +1,4 @@
-package controller;
+package controller.members;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import model.MemberStore;
 
 import java.io.IOException;
 
-public class addmemberpagecontroller {
+public class Addmemberpagecontroller {
 
     @FXML
     private Button btnAddMember;

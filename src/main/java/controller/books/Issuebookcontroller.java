@@ -1,4 +1,4 @@
-package controller;
+package controller.books;
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -15,7 +15,7 @@ import model.*;
 
 import java.io.IOException;
 
-public class issuebookcontroller {
+public class Issuebookcontroller {
 
     @FXML
     private Button btnBack;

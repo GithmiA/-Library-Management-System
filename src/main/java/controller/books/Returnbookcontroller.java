@@ -1,4 +1,4 @@
-package controller;
+package controller.books;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ import model.MemberStore;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class returnbookcontroller {
+public class Returnbookcontroller {
 
     @FXML
     private Button btnBack;

@@ -1,19 +1,17 @@
-package controller;
+package controller.login;
 
 import db.DBConnection;
 
 import java.sql.*;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.Executor;
 
 public class logincontroller {
 
-    DBConnection dbConnection  = DBConnection.getInstance();
-    Connection connection = dbConnection.getConnection();
+
+    Connection connection = DBConnection.getInstance().getConnection();
 
     public boolean nameandpasswordcheck(String name, String password) {
 
+        System.out.println(connection);
         String SQL = "SELECT * FROM users;";
 
         try {
