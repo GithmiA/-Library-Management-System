@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="798.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.maindashboardcontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="798.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.maindashboardcontroller">
    <top>
       <HBox prefHeight="57.0" prefWidth="600.0" styleClass="top-bar" BorderPane.alignment="CENTER">
          <children>
@@ -47,7 +47,7 @@
                      <children>
                         <ImageView fitHeight="37.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/homepageicon.png" />
+                              <Image url="@../img/homepageicon.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -70,7 +70,7 @@
                            <children>
                               <ImageView fitHeight="69.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@img/booksicon.png" />
+                                    <Image url="@../img/booksicon.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="15.0" left="15.0" top="20.0" />
@@ -95,7 +95,7 @@
                            <children>
                               <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@img/addusericon.png" />
+                                    <Image url="@../img/addusericon.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="25.0" top="35.0" />
@@ -120,7 +120,7 @@
                            <children>
                               <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@img/calenadaricon.png" />
+                                    <Image url="@../img/calenadaricon.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="15.0" left="20.0" top="35.0" />
@@ -145,7 +145,7 @@
                            <children>
                               <ImageView fitHeight="65.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@img/Invaliddata_img.png" />
+                                    <Image url="@../img/Invaliddata_img.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="15.0" left="15.0" top="30.0" />

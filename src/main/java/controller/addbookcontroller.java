@@ -78,7 +78,7 @@ public class addbookcontroller {
     void backDashboardOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -90,7 +90,7 @@ public class addbookcontroller {
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addbook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

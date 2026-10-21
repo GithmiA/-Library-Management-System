@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="762.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.managemembercontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="762.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.managemembercontroller">
    <top>
       <Label prefHeight="51.0" prefWidth="762.0" styleClass="addbook-topbar" text="Library Management System" BorderPane.alignment="CENTER" />
    </top>
@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="56.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/group.png" />
+                        <Image url="@../img/group.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="15.0" top="5.0" />
@@ -39,7 +39,7 @@
             <TextField fx:id="txtSearchById" layoutX="21.0" layoutY="73.0" prefHeight="40.0" prefWidth="500.0" promptText="Search Members by member ID" />
             <ImageView fx:id="imgSearch" fitHeight="37.0" fitWidth="35.0" layoutX="531.0" layoutY="76.0" onMouseClicked="#searchById" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/search.png" />
+                  <Image url="@../img/search.png" />
                </image>
             </ImageView>
             <TableView fx:id="memberTable" layoutX="9.0" layoutY="138.0" prefHeight="242.0" prefWidth="723.0">

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="748.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addbookcontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="748.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addbookcontroller">
    <top>
       <Label prefHeight="51.0" prefWidth="752.0" styleClass="addbook-topbar" text="Library Management System" BorderPane.alignment="CENTER" />
    </top>
@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="55.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/booksicon.png" />
+                        <Image url="@../img/booksicon.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="25.0" />

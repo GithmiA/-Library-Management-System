@@ -9,7 +9,8 @@ import java.util.concurrent.Executor;
 
 public class logincontroller {
 
-    Connection connection = DBConnection.getConnection();
+    DBConnection dbConnection  = DBConnection.getInstance();
+    Connection connection = dbConnection.getConnection();
 
     public boolean nameandpasswordcheck(String name, String password) {
 

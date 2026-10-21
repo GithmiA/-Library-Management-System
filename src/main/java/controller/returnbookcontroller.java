@@ -15,7 +15,6 @@ import model.MemberStore;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class returnbookcontroller {
 
@@ -61,7 +60,7 @@ public class returnbookcontroller {
     void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -73,7 +72,7 @@ public class returnbookcontroller {
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/returnbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/returnbook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

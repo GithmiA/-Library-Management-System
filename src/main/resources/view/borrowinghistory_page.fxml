@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="758.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.borrowinghistorycontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="758.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.borrowinghistorycontroller">
    <top>
       <Label prefHeight="51.0" prefWidth="762.0" styleClass="addbook-topbar" text="Library Management System" BorderPane.alignment="CENTER" />
    </top>
@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="37.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/time-left.png" />
+                        <Image url="@../img/time-left.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="15.0" top="10.0" />
@@ -39,7 +39,7 @@
             <TextField fx:id="txtSearchById" layoutX="20.0" layoutY="76.0" prefHeight="40.0" prefWidth="486.0" promptText="Search by Memeber ID" />
             <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="510.0" layoutY="77.0" onMouseClicked="#searchOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/search.png" />
+                  <Image url="@../img/search.png" />
                </image>
             </ImageView>
             <TableView fx:id="tblTableView" layoutX="19.0" layoutY="128.0" prefHeight="274.0" prefWidth="729.0">

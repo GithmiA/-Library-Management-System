@@ -71,7 +71,7 @@ public class addmemberpagecontroller {
     void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -82,7 +82,7 @@ public class addmemberpagecontroller {
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/addmember_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/addmember_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

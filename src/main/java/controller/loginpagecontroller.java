@@ -40,7 +40,7 @@ public class loginpagecontroller {
         if(Logincontroller.nameandpasswordcheck(txtusername.getText(),txtpassword.getText())){
             Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -48,7 +48,7 @@ public class loginpagecontroller {
         }else{
             Stage stage=new Stage();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/invalidlogin_page.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/invalidlogin_page.fxml"))));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
