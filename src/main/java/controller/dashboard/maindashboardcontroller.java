@@ -52,27 +52,27 @@ public class maindashboardcontroller {
     public void initialize() {
         int totalBooks =0;
 
-        for(Book book : BookStore.books) {
-            totalBooks += book.getQuantity();
-        }
+//        for(Book book : BookStore.books) {
+//            totalBooks += book.getQuantity();
+//        }
         lblTotalBook.setText(String.valueOf(totalBooks));
 
-        int totalMembers = MemberStore.members.size();
-        lblTotalMembers.setText(String.valueOf(totalMembers));
+        //int totalMembers = MemberStore.members.size();
+        //lblTotalMembers.setText(String.valueOf(totalMembers));
 
         int currentlyBorrowing = 0;
         int overdueBooks = 0;
 
         LocalDate today = LocalDate.now();
-        for (Borrowing borrowing : BorrowingStore.borrowings){
-            if (borrowing.getStatus().equals("Borrowed")) {
-                currentlyBorrowing++;
-                LocalDate dueDate = LocalDate.parse(borrowing.getDueDate());
-                if(dueDate.isBefore(today)) {
-                    overdueBooks++;
-                }
-            }
-        }
+//        for (Borrowing borrowing : BorrowingStore.borrowings){
+//            if (borrowing.getStatus().equals("Borrowed")) {
+//                currentlyBorrowing++;
+//                LocalDate dueDate = LocalDate.parse(borrowing.getDueDate());
+//                if(dueDate.isBefore(today)) {
+//                    overdueBooks++;
+//                }
+//            }
+//        }
         lblCurrentlyBorrowing.setText(String.valueOf(currentlyBorrowing));
         lblOverdueBooks.setText(String.valueOf(overdueBooks));
     }

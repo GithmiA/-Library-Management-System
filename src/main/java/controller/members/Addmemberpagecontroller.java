@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Member;
-import model.MemberStore;
+
 
 import java.io.IOException;
 

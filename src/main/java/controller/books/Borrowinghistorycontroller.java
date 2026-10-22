@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Borrowing;
-import model.BorrowingStore;
+
 
 import java.io.IOException;
 
@@ -61,32 +61,32 @@ public class Borrowinghistorycontroller {
 
     @FXML
     void searchOnAction(MouseEvent event) {
-        String searchId = txtSearchById.getText().trim();
-
-        if(searchId.isEmpty()) {
-            tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
-            return;
-        }
-        FXCollections.observableArrayList();
-
-        javafx.collections.ObservableList<Borrowing> searchResult = FXCollections.observableArrayList();
-        for (Borrowing borrowing : BorrowingStore.borrowings) {
-            if(borrowing.getMemberId().equalsIgnoreCase(searchId)) {
-                searchResult.add(borrowing);
-            }
-        }
-tblTableView.setItems(searchResult);
+//        String searchId = txtSearchById.getText().trim();
+//
+//        if(searchId.isEmpty()) {
+//            tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
+//            return;
+//        }
+//        FXCollections.observableArrayList();
+//
+//        javafx.collections.ObservableList<Borrowing> searchResult = FXCollections.observableArrayList();
+//        for (Borrowing borrowing : BorrowingStore.borrowings) {
+//            if(borrowing.getMemberId().equalsIgnoreCase(searchId)) {
+//                searchResult.add(borrowing);
+//            }
+//        }
+//         tblTableView.setItems(searchResult);
     }
     @FXML
     public void initialize() {
-        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberId"));
-        bookTitleColumn.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
-        issueDateColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
-        dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
-        returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
+//        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+//        bookTitleColumn.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
+//        issueDateColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+//        dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+//        returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+//        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+//
+//        tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
     }
 
 }

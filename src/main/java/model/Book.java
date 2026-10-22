@@ -38,37 +38,37 @@ public class Book {
         this.bookTitle = bookTitle;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getPublishedYear() {
-        return publishedYear;
-    }
-
-    public void setPublishedYear(String publishedYear) {
-        this.publishedYear = publishedYear;
-    }
+//    public String getAuthor() {
+//        return author;
+//    }
+//
+//    public void setAuthor(String author) {
+//        this.author = author;
+//    }
+//
+//    public String getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(String category) {
+//        this.category = category;
+//    }
+//
+//    public String getPublishedYear() {
+//        return publishedYear;
+//    }
+//
+//    public void setPublishedYear(String publishedYear) {
+//        this.publishedYear = publishedYear;
+//    }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+//    public void setQuantity(int quantity) {
+//        this.quantity = quantity;
+//    }
 
     @Override
     public String toString() {
