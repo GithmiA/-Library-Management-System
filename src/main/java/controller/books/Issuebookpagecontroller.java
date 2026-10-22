@@ -67,20 +67,18 @@ public class Issuebookpagecontroller {
 
     @FXML
     void issueBookOnAction(ActionEvent event) {
-        Book book = txtSelectBook.getValue();
-        Member member = txtSelectMemeber.getValue();
 
-        if (book == null || member == null || txtIssueBook.getValue() == null || txtDueDate.getValue() == null){
-            System.out.println("select all details");
-            return;
+        if( (txtSelectBook.getValue() != null) && (txtSelectMemeber.getValue() != null) ) {
+            issuebookcontroller.issueBook(
+                    txtSelectMemeber.getValue().getMemberId(),
+                    txtSelectMemeber.getValue().getFullName(),
+                    txtSelectBook.getValue().getBookId(),
+                    txtSelectBook.getValue().getBookTitle(),
+                    txtIssueBook.getValue(),
+                    txtDueDate.getValue()
+            );
+
         }
-        Borrowing borrowing = new Borrowing(member.getMemberId(), member.getFullName(), book.getBookId(), book.getBookTitle(), txtIssueBook.getValue().toString(),txtDueDate.getValue().toString());
-        BorrowingStore.borrowings.add(borrowing);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Book issued Successfully!");
-        alert.showAndWait();
         clearFields();
 
     }

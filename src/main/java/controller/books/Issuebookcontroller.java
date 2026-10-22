@@ -1,13 +1,16 @@
 package controller.books;
 
 import db.DBConnection;
+import javafx.scene.control.Alert;
 import model.Book;
 import model.Member;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Issuebookcontroller {
@@ -62,6 +65,36 @@ public class Issuebookcontroller {
             throw new RuntimeException(e);
         }
         return members;
+
+    }
+    public void issueBook(String memberId, String name, String bookId, String bookTitle, LocalDate issueDate, LocalDate dueDate) {
+
+        String SQL = "INSERT INTO borrowing(member_id,full_name,book_id,book_title,issue_date,due_date) VALUES (?,?,?,?,?,?);";
+
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
+            preparedStatement.setString(1,memberId);
+            preparedStatement.setString(2,name);
+            preparedStatement.setString(3,bookId);
+            preparedStatement.setString(4,bookTitle);
+            preparedStatement.setDate(5, Date.valueOf(issueDate));
+            preparedStatement.setDate(6,Date.valueOf(dueDate));
+
+            preparedStatement.executeUpdate();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText(null);
+            alert.setContentText("Book issued Successfully!");
+            alert.showAndWait();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
