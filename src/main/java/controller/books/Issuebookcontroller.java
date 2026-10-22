@@ -39,5 +39,31 @@ public class Issuebookcontroller {
 
     }
 
+    public List<Member> getAllMembers() {
+
+        List<Member> members = new ArrayList<>();
+
+        String SQL = "SELECT * FROM members;";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SQL);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Member member = new Member();
+                member.setMemberId(resultSet.getString("member_id"));
+                member.setFullName(resultSet.getString("full_name"));
+
+                members.add(member);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return members;
+
+    }
+
 
 }

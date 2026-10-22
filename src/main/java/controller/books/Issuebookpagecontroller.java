@@ -95,9 +95,10 @@ public class Issuebookpagecontroller {
     @FXML
     public void initialize(){
         List<Book> books = issuebookcontroller.getAllBooks();
+        List<Member> members = issuebookcontroller.getAllMembers();
 
         txtSelectBook.getItems().addAll(books);
-        txtSelectMemeber.setItems(FXCollections.observableArrayList(MemberStore.members));
+        txtSelectMemeber.getItems().addAll(members);
     }
 
 }
