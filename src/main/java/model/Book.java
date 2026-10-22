@@ -9,13 +9,17 @@ public class Book {
     private String publishedYear;
     private int quantity;
 
-    public Book(String bookId, String bookTitle, String author, String category, String publishedYear, int quantity) {
-        this.bookId = bookId;
-        this.bookTitle = bookTitle;
-        this.author = author;
-        this.category = category;
-        this.publishedYear = publishedYear;
-        this.quantity = quantity;
+//    public Book(String bookId, String bookTitle, String author, String category, String publishedYear, int quantity) {
+//        this.bookId = bookId;
+//        this.bookTitle = bookTitle;
+//        this.author = author;
+//        this.category = category;
+//        this.publishedYear = publishedYear;
+//        this.quantity = quantity;
+//    }
+
+    public Book() {
+
     }
 
     public String getBookId() {
