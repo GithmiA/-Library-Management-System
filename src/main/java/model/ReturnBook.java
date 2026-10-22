@@ -10,14 +10,16 @@ public class ReturnBook {
     private String bookTitle;
     private String borrowedDate;
     private String dueDate;
+    private String status;
 
-    public ReturnBook(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate) {
+    public ReturnBook(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate,String status) {
         this.memberId = memberId;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.bookTitle = bookTitle;
         this.borrowedDate = borrowedDate;
         this.dueDate = dueDate;
+        this.status = status;
     }
 
 
@@ -43,5 +45,9 @@ public class ReturnBook {
 
     public String getDueDate() {
         return dueDate;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

@@ -56,19 +56,18 @@ public class Returnbookpagecontroller {
     void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
-
     }
 
     @FXML
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/returnbook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/returnbook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -79,31 +78,42 @@ public class Returnbookpagecontroller {
     @FXML
     void returnOnAction(ActionEvent event) {
 
+        returnbookcontroller.returnBook(dpReturnDate.getValue(),txtSearchBox.getText());
+        clearField();
+    }
+
+    private void clearField() {
+        lblMemberId.setText("");
+        lblFullName.setText("");
+        lblPhoneNumber.setText("");
+        lblBookTitle.setText("");
+        lblBorrowedDate.setText("");
+        lblDueDate.setText("");
+        lblStatus.setText("");
 
     }
+
 
     @FXML
     void searchBook(MouseEvent event) {
 
         ReturnBook book = returnbookcontroller.load(txtSearchBox.getText());
 
-        if(book != null) {
-            lblMemberId.setText(book.getMemberId());
-            lblFullName.setText(book.getName());
-            lblPhoneNumber.setText(book.getPhoneNumber());
-            //lblStatus.setText();
-            lblBookTitle.setText(book.getBookTitle());
-            lblBorrowedDate.setText(book.getBorrowedDate());
-            lblDueDate.setText(book.getDueDate());
-        }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("OOPS");
-            alert.setHeaderText(null);
-            alert.setContentText("Book not found!");
-            alert.showAndWait();
-        }
-
-
+            if(book != null) {
+                lblMemberId.setText(book.getMemberId());
+                lblFullName.setText(book.getName());
+                lblPhoneNumber.setText(book.getPhoneNumber());
+                lblStatus.setText(book.getStatus());
+                lblBookTitle.setText(book.getBookTitle());
+                lblBorrowedDate.setText(book.getBorrowedDate());
+                lblDueDate.setText(book.getDueDate());
+            }else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("OOPS");
+                alert.setHeaderText(null);
+                alert.setContentText("Book not found!");
+                alert.showAndWait();
+            }
     }
 
 }
