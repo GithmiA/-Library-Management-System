@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="762.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.members.Managemembercontroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="762.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.members.Managememberpagecontroller">
    <top>
       <Label prefHeight="51.0" prefWidth="762.0" styleClass="addbook-topbar" text="Library Management System" BorderPane.alignment="CENTER" />
    </top>
@@ -47,8 +47,8 @@
                 <TableColumn fx:id="idColumn" prefWidth="91.19997787475586" text="Member Id " />
                 <TableColumn fx:id="nameColumn" minWidth="4.0" prefWidth="160.00001525878906" text="Name" />
                   <TableColumn fx:id="emailColumn" minWidth="6.4000244140625" prefWidth="177.60003662109375" text="Email" />
-                  <TableColumn fx:id="phonenumberColumn" prefWidth="128.0" text="Phone Number" />
-                  <TableColumn fx:id="actionColumn" prefWidth="163.9999877929688" text="Action" />
+                  <TableColumn fx:id="phonenumberColumn" prefWidth="144.79995727539062" text="Phone Number" />
+                  <TableColumn fx:id="actionColumn" prefWidth="147.20001220703125" text="Action" />
               </columns>
             </TableView>
             <Button fx:id="btnBack" layoutX="521.0" layoutY="407.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="42.0" prefWidth="150.0" text="Back to Dashboard" />
