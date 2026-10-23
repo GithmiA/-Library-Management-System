@@ -57,26 +57,15 @@ public class Borrowinghistorypagecontroller {
             throw new RuntimeException(e);
         }
         stage.show();
-
     }
 
     @FXML
     void searchOnAction(MouseEvent event) {
-//        String searchId = txtSearchById.getText().trim();
-//
-//        if(searchId.isEmpty()) {
-//            tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
-//            return;
-//        }
-//        FXCollections.observableArrayList();
-//
-//        javafx.collections.ObservableList<Borrowing> searchResult = FXCollections.observableArrayList();
-//        for (Borrowing borrowing : BorrowingStore.borrowings) {
-//            if(borrowing.getMemberId().equalsIgnoreCase(searchId)) {
-//                searchResult.add(borrowing);
-//            }
-//        }
-//         tblTableView.setItems(searchResult);
+        tblTableView.getItems().clear();
+        String searchId = txtSearchById.getText().trim();
+
+        tblTableView.setItems(borrowinghistorycontroller.searchData(searchId));
+
     }
     @FXML
     public void initialize() {
@@ -87,7 +76,7 @@ public class Borrowinghistorypagecontroller {
         returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-
         tblTableView.setItems(borrowinghistorycontroller.loadDetails());
+
     }
 }

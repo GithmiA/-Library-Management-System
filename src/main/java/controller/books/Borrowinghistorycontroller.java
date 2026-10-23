@@ -14,9 +14,11 @@ public class Borrowinghistorycontroller {
 
      Connection connection = DBConnection.getInstance().getConnection();
 
+    ObservableList<Borrowing> list = FXCollections.observableArrayList();
+
     public ObservableList<Borrowing> loadDetails() {
 
-        ObservableList<Borrowing> list = FXCollections.observableArrayList();
+
 
         String SQL = "SELECT * FROM borrowing;";
 
@@ -37,6 +39,34 @@ public class Borrowinghistorycontroller {
                 list.add(borrowing);
             }
             return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ObservableList<Borrowing> searchData(String searchId) {
+
+        String SQL = "SELECT * FROM borrowing WHERE borrowing.member_id = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1,searchId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Borrowing borrowing = new Borrowing(
+                        resultSet.getString("member_id"),
+                        resultSet.getString("book_title"),
+                        resultSet.getDate("issue_date").toString(),
+                        resultSet.getDate("due_date").toString(),
+                        resultSet.getDate("return_date").toString(),
+                        resultSet.getString("status")
+                );
+                list.add(borrowing);
+
+            }
+            return list;
+
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
