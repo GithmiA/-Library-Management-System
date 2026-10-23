@@ -1,16 +1,15 @@
 package model;
 
-import java.time.LocalDate;
 
 public class ReturnBook {
 
-    private String memberId;
-    private String name;
-    private String phoneNumber;
-    private String bookTitle;
-    private String borrowedDate;
-    private String dueDate;
-    private String status;
+    private final String memberId;
+    private final String name;
+    private final String phoneNumber;
+    private final String bookTitle;
+    private final String borrowedDate;
+    private final String dueDate;
+    private final String status;
 
     public ReturnBook(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate,String status) {
         this.memberId = memberId;
