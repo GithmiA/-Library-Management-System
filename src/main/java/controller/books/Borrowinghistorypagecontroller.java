@@ -78,5 +78,14 @@ public class Borrowinghistorypagecontroller {
 
         tblTableView.setItems(borrowinghistorycontroller.loadDetails());
 
+        txtSearchById.textProperty().addListener(
+                (observable,oldValue,newValue) -> {
+                    if (newValue == null || newValue.trim().isEmpty()) {
+                        tblTableView.getItems().clear();
+                        tblTableView.setItems(borrowinghistorycontroller.loadDetails());
+                    }
+                }
+        );
+
     }
 }
