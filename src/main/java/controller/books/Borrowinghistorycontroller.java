@@ -14,7 +14,7 @@ public class Borrowinghistorycontroller {
 
      Connection connection = DBConnection.getInstance().getConnection();
 
-    public void loadDetails() {
+    public ObservableList<Borrowing> loadDetails() {
 
         ObservableList<Borrowing> list = FXCollections.observableArrayList();
 
