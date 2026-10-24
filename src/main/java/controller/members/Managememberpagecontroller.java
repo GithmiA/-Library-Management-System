@@ -59,6 +59,10 @@ public class Managememberpagecontroller {
         stage.show();
 
     }
+    @FXML
+    void searchById(MouseEvent event) {
+
+    }
 
     @FXML
     public void initialize(){
@@ -79,7 +83,17 @@ public class Managememberpagecontroller {
         nameColumn.setOnEditCommit(event -> {
             Member member = event.getRowValue();
             member.setFullName(event.getNewValue());
-            managemembercontroller.updateMember();
+            managemembercontroller.updateMember(member);
+        });
+        emailColumn.setOnEditCommit(event ->{
+            Member member = event.getRowValue();
+            member.setEmail(event.getNewValue());
+            managemembercontroller.updateMember(member);
+        });
+        phonenumberColumn.setOnEditCommit(event ->{
+            Member member = event.getRowValue();
+            member.setPhoneNumber(event.getNewValue());
+            managemembercontroller.updateMember(member);
         });
     }
 
@@ -92,6 +106,11 @@ public class Managememberpagecontroller {
             {
                 buttons.getChildren().addAll(editButton,deleteButton);
                 editButton.setOnAction(event -> {
+
+                    nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+                    emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+                    phonenumberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
                     Member member=getTableView().getItems().get(getIndex());
                     int row = getTableView().getItems().indexOf(member);
                     memberTable.getSelectionModel().select(row);

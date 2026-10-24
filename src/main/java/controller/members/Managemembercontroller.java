@@ -46,7 +46,21 @@ public class Managemembercontroller {
 
     }
 
-    public void updateMember() {
+    public void updateMember(Member member) {
 
+        String SQL= " UPDATE members SET full_name = ?," + "email = ?,phone_number = ?" + "WHERE members.member_id =?;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, member.getFullName());
+            preparedStatement.setString(2, member.getEmail());
+            preparedStatement.setString(3, member.getPhoneNumber());
+            preparedStatement.setString(4, member.getMemberId());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
