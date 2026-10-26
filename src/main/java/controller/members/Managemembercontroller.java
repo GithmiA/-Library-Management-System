@@ -63,4 +63,32 @@ public class Managemembercontroller {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean deleteMember(Member member) {
+        String SQL = "DELETE FROM members WHERE members.member_id = ?;";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, member.getMemberId());
+            int row = preparedStatement.executeUpdate();
+            return row > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public boolean hasBorrowingRecords(Member member) {
+
+        String SQL = "SELECT 1 FROM borrowing " + "WHERE borrowing.member_id = ? LIMIT 1;";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1, member.getMemberId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            return resultSet.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }

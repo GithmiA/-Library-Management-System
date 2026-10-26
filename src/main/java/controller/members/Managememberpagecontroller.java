@@ -112,9 +112,33 @@ public class Managememberpagecontroller {
                     phonenumberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
                     Member member=getTableView().getItems().get(getIndex());
-                    int row = getTableView().getItems().indexOf(member);
-                    memberTable.getSelectionModel().select(row);
-                    memberTable.edit(row,nameColumn);
+
+                    if(managemembercontroller.hasBorrowingRecords(member)) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Delete Member");
+                        alert.setHeaderText("Cannot Delete Member");
+                        alert.setContentText("This member has borrowing records.");
+                        alert.showAndWait();
+                    }else {
+                        if(managemembercontroller.deleteMember(member)) {
+                            memberTable.setItems(managemembercontroller.loadTable());
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Delete Member");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Member Delete Successfully.");
+                            alert.showAndWait();
+                        }
+                    }
+                });
+                deleteButton.setOnAction(event -> {
+                    Member member=getTableView().getItems().get(getIndex());
+
+                    if (managemembercontroller.deleteMember(member)) {
+                        memberTable.setItems(managemembercontroller.loadTable());
+                    }else {
+
+                    }
+                    memberTable.refresh();
 
                 });
 
