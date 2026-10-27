@@ -1,5 +1,6 @@
 package controller.members;
 
+import com.mysql.cj.protocol.a.BinaryResultsetReader;
 import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -85,6 +86,35 @@ public class Managemembercontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             return resultSet.next();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    public ObservableList<Member> searchDate(String searchId) {
+
+        ObservableList<Member> list = FXCollections.observableArrayList();
+
+        String SQL = "SELECT * FROM members WHERE members.member_id = ?;";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setString(1,searchId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                Member member = new Member(
+                        resultSet.getString("member_id"),
+                        resultSet.getString("full_name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone_number")
+                );
+                list.add(member);
+            }
+            return list;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

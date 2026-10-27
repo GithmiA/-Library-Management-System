@@ -61,6 +61,9 @@ public class Managememberpagecontroller {
     }
     @FXML
     void searchById(MouseEvent event) {
+        String searchId = txtSearchById.getText().trim();
+
+        memberTable.setItems(managemembercontroller.searchDate(searchId));
 
     }
 
@@ -76,6 +79,14 @@ public class Managememberpagecontroller {
 
         updateMembers();
         setUpActionColumn();
+        txtSearchById.textProperty().addListener(
+                (observable,oldValue,newValue) -> {
+                    if (newValue == null || newValue.trim().isEmpty()) {
+                        memberTable.getItems().clear();
+                        memberTable.setItems(managemembercontroller.loadTable());
+                    }
+                }
+        );
 
     }
 
@@ -113,32 +124,35 @@ public class Managememberpagecontroller {
 
                     Member member=getTableView().getItems().get(getIndex());
 
-                    if(managemembercontroller.hasBorrowingRecords(member)) {
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Delete Member");
-                        alert.setHeaderText("Cannot Delete Member");
-                        alert.setContentText("This member has borrowing records.");
-                        alert.showAndWait();
-                    }else {
-                        if(managemembercontroller.deleteMember(member)) {
-                            memberTable.setItems(managemembercontroller.loadTable());
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Delete Member");
-                            alert.setHeaderText(null);
-                            alert.setContentText("Member Delete Successfully.");
-                            alert.showAndWait();
-                        }
-                    }
                 });
                 deleteButton.setOnAction(event -> {
                     Member member=getTableView().getItems().get(getIndex());
 
-                    if (managemembercontroller.deleteMember(member)) {
-                        memberTable.setItems(managemembercontroller.loadTable());
-                    }else {
+                    try {
+                        if(managemembercontroller.hasBorrowingRecords(member)) {
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Delete Member");
+                            alert.setHeaderText("Cannot Delete Member");
+                            alert.setContentText("This member has borrowing records.");
+                            alert.showAndWait();
+                        }else {
+                            if(managemembercontroller.deleteMember(member)) {
+                                memberTable.setItems(managemembercontroller.loadTable());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Delete Member");
+                                alert.setHeaderText(null);
+                                alert.setContentText("Member Delete Successfully.");
+                                alert.showAndWait();
+                            }
+                        }
 
-                    }
-                    memberTable.refresh();
+                        }catch (RuntimeException e) {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setTitle("Database Error");
+                            alert.setHeaderText("Delete Failed");
+                            alert.showAndWait();
+                        }
+
 
                 });
 
