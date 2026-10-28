@@ -33,9 +33,14 @@ public class Borrowinghistorycontroller {
                         resultSet.getString("book_title"),
                         resultSet.getDate("issue_date").toString(),
                         resultSet.getDate("due_date").toString(),
-                        resultSet.getDate("return_date").toString(),
                         resultSet.getString("status")
                 );
+                String returnDate = resultSet.getString("return_date");
+                if (returnDate == null) {
+                    borrowing.setReturnDate(" - ");
+                }else {
+                    borrowing.setReturnDate(resultSet.getString("return_date"));
+                }
                 list.add(borrowing);
             }
             return list;
@@ -58,9 +63,15 @@ public class Borrowinghistorycontroller {
                         resultSet.getString("book_title"),
                         resultSet.getDate("issue_date").toString(),
                         resultSet.getDate("due_date").toString(),
-                        resultSet.getDate("return_date").toString(),
                         resultSet.getString("status")
                 );
+
+                String returnDate = resultSet.getString("return_date");
+                if (returnDate == null) {
+                    borrowing.setReturnDate(" - ");
+                }else {
+                    borrowing.setReturnDate(resultSet.getString("return_date"));
+                }
                 list.add(borrowing);
 
             }

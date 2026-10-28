@@ -82,6 +82,7 @@ public class Issuebookcontroller {
             preparedStatement.setDate(5, Date.valueOf(issueDate));
             preparedStatement.setDate(6,Date.valueOf(dueDate));
 
+
             preparedStatement.executeUpdate();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

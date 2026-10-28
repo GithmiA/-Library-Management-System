@@ -13,16 +13,32 @@ public class Returnbookcontroller {
 
     public ReturnBook load(String searchId) {
 
-        String SQL = "SELECT * FROM members INNER JOIN borrowing ON members.member_id = borrowing.member_id WHERE borrowing.book_id = ? AND borrowing.return_date IS NULL;";
+        String SQL_1 = "SELECT * FROM members INNER JOIN borrowing ON members.member_id = borrowing.member_id WHERE borrowing.book_id = ? AND borrowing.return_date IS NULL";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            PreparedStatement preparedStatement_1 = connection.prepareStatement(SQL_1);
+            preparedStatement_1.setString(1,searchId);
+            ResultSet resultSet_1 = preparedStatement_1.executeQuery();
+
+            while (resultSet_1.next()) {
+                setStatus(searchId,resultSet_1.getString("due_date"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        String SQL_2 = "SELECT * FROM members INNER JOIN borrowing ON members.member_id = borrowing.member_id WHERE borrowing.book_id = ? AND borrowing.return_date IS NULL;";
+
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_2);
             preparedStatement.setString(1,searchId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if(resultSet.next()) {
 
-                setStatus(searchId,resultSet.getDate("due_date").toString());
 
                 return new ReturnBook(
                             resultSet.getString("member_id"),
@@ -39,17 +55,14 @@ public class Returnbookcontroller {
             throw new RuntimeException(e);
         }
     }
-
-    private void setStatus(String searchId,String dueDate) {
-
+    public void setStatus(String searchId,String dueDate) {
         LocalDate today = LocalDate.now();
 
-        String SQL = "UPDATE borrowing SET status = ? WHERE book_id = ?;";
-
+        String SQL_2 = "UPDATE borrowing SET status = ? WHERE " + "book_id = ? AND borrowing.return_date IS NULL;";
 
         if(LocalDate.parse(dueDate).isBefore(today)) {
             try {
-                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL_2);
                 preparedStatement.setString(1,"OVERDUE");
                 preparedStatement.setString(2,searchId);
                 preparedStatement.executeUpdate();
@@ -57,7 +70,9 @@ public class Returnbookcontroller {
                 throw new RuntimeException(e);
             }
         }
+
     }
+
 
     public void returnBook(LocalDate returnDate,String bookId) {
 

@@ -9,13 +9,15 @@ public class Borrowing {
     private String returnDate;
     private String status;
 
-    public Borrowing(String memberId,String bookTitle, String issueDate, String dueDate, String returnDate, String status) {
+    public Borrowing(String memberId,String bookTitle, String issueDate, String dueDate, String status) {
         this.memberId = memberId;
         this.bookTitle = bookTitle;
         this.issueDate = issueDate;
         this.dueDate = dueDate;
-        this.returnDate = returnDate;
         this.status = status;
+    }
+    public Borrowing() {
+
     }
 
     public String getBookTitle() {
@@ -36,6 +38,10 @@ public class Borrowing {
 
     public String getStatus() {
         return status;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
     }
 
     public String getReturnDate() {

@@ -47,6 +47,7 @@ public class Borrowinghistorypagecontroller {
     private TextField txtSearchById;
 
     Borrowinghistorycontroller borrowinghistorycontroller = new Borrowinghistorycontroller();
+    Borrowing borrowing = new Borrowing();
 
     @FXML
     void backOnAction(ActionEvent event) {

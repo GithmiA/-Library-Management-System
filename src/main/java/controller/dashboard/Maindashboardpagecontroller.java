@@ -8,12 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class maindashboardcontroller {
+public class Maindashboardpagecontroller {
 
     @FXML
     private Button btnAddBook;
@@ -48,33 +47,17 @@ public class maindashboardcontroller {
     @FXML
     private Label lblOverdueBooks;
 
+    Dashboardcontroller dashboardcontroller = new Dashboardcontroller();
+
     @FXML
     public void initialize() {
-        int totalBooks =0;
 
-//        for(Book book : BookStore.books) {
-//            totalBooks += book.getQuantity();
-//        }
-        lblTotalBook.setText(String.valueOf(totalBooks));
-
-        //int totalMembers = MemberStore.members.size();
-        //lblTotalMembers.setText(String.valueOf(totalMembers));
-
-        int currentlyBorrowing = 0;
-        int overdueBooks = 0;
+       lblTotalBook.setText(String.valueOf(dashboardcontroller.countBooks()));
+       lblTotalMembers.setText(String.valueOf(dashboardcontroller.countMembers()));
+       lblCurrentlyBorrowing.setText(String.valueOf(dashboardcontroller.countCurrentlyBorrowing()));
+       lblOverdueBooks.setText(String.valueOf(dashboardcontroller.countOverdueBooks()));
 
         LocalDate today = LocalDate.now();
-//        for (Borrowing borrowing : BorrowingStore.borrowings){
-//            if (borrowing.getStatus().equals("Borrowed")) {
-//                currentlyBorrowing++;
-//                LocalDate dueDate = LocalDate.parse(borrowing.getDueDate());
-//                if(dueDate.isBefore(today)) {
-//                    overdueBooks++;
-//                }
-//            }
-//        }
-        lblCurrentlyBorrowing.setText(String.valueOf(currentlyBorrowing));
-        lblOverdueBooks.setText(String.valueOf(overdueBooks));
     }
 
 
