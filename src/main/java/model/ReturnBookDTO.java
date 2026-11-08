@@ -4,7 +4,6 @@ package model;
 public class ReturnBookDTO {
 
     private  String memberId;
-    private  String name;
     private  String phoneNumber;
     private  String bookTitle;
     private  String borrowedDate;
@@ -13,11 +12,16 @@ public class ReturnBookDTO {
     private  String fullName;
     private  String issueDate;
 
-    public ReturnBookDTO() {
-
-    }
-
-    public ReturnBookDTO(String memberId,String fullname,String phoneNumber,String bookTitle,String issueDate,String dueDate,String status) {
+//    public ReturnBookDTO(String memberId,String fullName,String phoneNumber,String bookTitle,String borrowedDate,String dueDate,String status) {
+//        this.memberId = memberId;
+//        this.fullName = fullName;
+//        this.phoneNumber = phoneNumber;
+//        this.bookTitle = bookTitle;
+//        this.borrowedDate = borrowedDate;
+//        this.dueDate = dueDate;
+//        this.status = status;
+//    }
+    public  ReturnBookDTO() {
 
     }
 
@@ -25,9 +29,6 @@ public class ReturnBookDTO {
         this.memberId = memberId;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -67,10 +68,6 @@ public class ReturnBookDTO {
 
     public String getMemberId() {
         return memberId;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getPhoneNumber() {

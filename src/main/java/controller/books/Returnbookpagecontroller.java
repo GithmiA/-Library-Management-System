@@ -97,24 +97,22 @@ public class Returnbookpagecontroller {
 
     @FXML
     void searchBook(MouseEvent event) {
+        ReturnBookDTO returnBookDTO = returnbookcontroller.load(txtSearchBox.getText());
 
-        returnbookcontroller.load(txtSearchBox.getText());
+        if (returnBookDTO != null) {
 
-            if(book != null) {
-                lblMemberId.setText(book.getMemberId());
-                lblFullName.setText(book.getName());
-                lblPhoneNumber.setText(book.getPhoneNumber());
-                lblStatus.setText(book.getStatus());
-                lblBookTitle.setText(book.getBookTitle());
-                lblBorrowedDate.setText(book.getBorrowedDate());
-                lblDueDate.setText(book.getDueDate());
-            }else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("OOPS");
-                alert.setHeaderText(null);
-                alert.setContentText("Book not found!");
-                alert.showAndWait();
-            }
+            lblMemberId.setText(returnBookDTO.getMemberId());
+            lblFullName.setText(returnBookDTO.getFullName());
+            lblPhoneNumber.setText(returnBookDTO.getPhoneNumber());
+            lblStatus.setText(returnBookDTO.getStatus());
+            lblBookTitle.setText(returnBookDTO.getBookTitle());
+            lblBorrowedDate.setText(returnBookDTO.getIssueDate());
+            lblDueDate.setText(returnBookDTO.getDueDate());
+        }
+
+
+
+
     }
 
 }
