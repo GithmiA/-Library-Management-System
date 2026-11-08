@@ -1,19 +1,16 @@
 package controller.books;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import model.*;
 import java.util.List;
-import java.awt.*;
 import java.io.IOException;
 
 public class Issuebookpagecontroller {
@@ -34,10 +31,10 @@ public class Issuebookpagecontroller {
     private DatePicker txtIssueBook;
 
     @FXML
-    private ComboBox<Book> txtSelectBook;
+    private ComboBox<BookDTO> txtSelectBook;
 
     @FXML
-    private ComboBox<Member> txtSelectMemeber;
+    private ComboBox<MemberDTO> txtSelectMemeber;
 
     Issuebookcontroller issuebookcontroller = new Issuebookcontroller();
 
@@ -92,8 +89,8 @@ public class Issuebookpagecontroller {
 
     @FXML
     public void initialize(){
-        List<Book> books = issuebookcontroller.getAllBooks();
-        List<Member> members = issuebookcontroller.getAllMembers();
+        List<BookDTO> books = issuebookcontroller.getAllBooks();
+        List<MemberDTO> members = issuebookcontroller.getAllMembers();
 
         txtSelectBook.getItems().addAll(books);
         txtSelectMemeber.getItems().addAll(members);

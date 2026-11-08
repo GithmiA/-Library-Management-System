@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.Member;
+import model.MemberDTO;
 
 
 import java.io.IOException;
@@ -83,28 +83,28 @@ public class Addmemberpagecontroller {
     public class Managememberpagecontroller {
 
         @FXML
-        private TableColumn<Member,Void> actionColumn;
+        private TableColumn<MemberDTO,Void> actionColumn;
 
         @FXML
         private Button btnBack;
 
         @FXML
-        private TableColumn<Member, String> emailColumn;
+        private TableColumn<MemberDTO, String> emailColumn;
 
         @FXML
-        private TableColumn<Member, String> idColumn;
+        private TableColumn<MemberDTO, String> idColumn;
 
         @FXML
         private ImageView imgSearch;
 
         @FXML
-        private TableView<Member> memberTable;
+        private TableView<MemberDTO> memberTable;
 
         @FXML
-        private TableColumn<Member, String> nameColumn;
+        private TableColumn<MemberDTO, String> nameColumn;
 
         @FXML
-        private TableColumn<Member, String> phonenumberColumn;
+        private TableColumn<MemberDTO, String> phonenumberColumn;
 
         @FXML
         private TextField txtSearchById;
@@ -122,15 +122,15 @@ public class Addmemberpagecontroller {
             phonenumberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
             nameColumn.setOnEditCommit(event -> {
-                Member member = event.getRowValue();
+                MemberDTO member = event.getRowValue();
                 member.setFullName(event.getNewValue());
             });
             emailColumn.setOnEditCommit(event -> {
-                Member member = event.getRowValue();
+                MemberDTO member = event.getRowValue();
                 member.setEmail(event.getNewValue());
             });
             phonenumberColumn.setOnEditCommit(event -> {
-                Member member = event.getRowValue();
+                MemberDTO member = event.getRowValue();
                 member.setPhoneNumber(event.getNewValue());
             });
 

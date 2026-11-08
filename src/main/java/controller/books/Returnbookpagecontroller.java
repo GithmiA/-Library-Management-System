@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.ReturnBook;
+import model.ReturnBookDTO;
 
 import java.io.IOException;
 
@@ -97,7 +97,7 @@ public class Returnbookpagecontroller {
     @FXML
     void searchBook(MouseEvent event) {
 
-        ReturnBook book = returnbookcontroller.load(txtSearchBox.getText());
+        ReturnBookDTO book = returnbookcontroller.load(txtSearchBox.getText());
 
             if(book != null) {
                 lblMemberId.setText(book.getMemberId());

@@ -2,7 +2,7 @@ package controller.books;
 
 import db.DBConnection;
 import javafx.scene.control.Alert;
-import model.ReturnBook;
+import model.ReturnBookDTO;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ public class Returnbookcontroller {
 
     Connection connection = DBConnection.getInstance().getConnection();
 
-    public ReturnBook load(String searchId) {
+    public ReturnBookDTO load(String searchId) {
 
         String SQL_1 = "SELECT * FROM members INNER JOIN borrowing ON members.member_id = borrowing.member_id WHERE borrowing.book_id = ? AND borrowing.return_date IS NULL";
 
@@ -40,7 +40,7 @@ public class Returnbookcontroller {
             if(resultSet.next()) {
 
 
-                return new ReturnBook(
+                return new ReturnBookDTO(
                             resultSet.getString("member_id"),
                             resultSet.getString("full_name"),
                             resultSet.getString("phone_number"),

@@ -1,7 +1,6 @@
 package controller.members;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,35 +12,35 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import model.Member;
+import model.MemberDTO;
 
 import java.io.IOException;
 
 public class Managememberpagecontroller {
 
     @FXML
-    private TableColumn<Member, Void> actionColumn;
+    private TableColumn<MemberDTO, Void> actionColumn;
 
     @FXML
     private Button btnBack;
 
     @FXML
-    private TableColumn<Member, String> emailColumn;
+    private TableColumn<MemberDTO, String> emailColumn;
 
     @FXML
-    private TableColumn<Member, String> idColumn;
+    private TableColumn<MemberDTO, String> idColumn;
 
     @FXML
     private ImageView imgSearch;
 
     @FXML
-    private TableView<Member> memberTable;
+    private TableView<MemberDTO> memberTable;
 
     @FXML
-    private TableColumn<Member, String> nameColumn;
+    private TableColumn<MemberDTO, String> nameColumn;
 
     @FXML
-    private TableColumn<Member, String> phonenumberColumn;
+    private TableColumn<MemberDTO, String> phonenumberColumn;
 
     @FXML
     private TextField txtSearchById;
@@ -92,24 +91,24 @@ public class Managememberpagecontroller {
 
     private void updateMembers() {
         nameColumn.setOnEditCommit(event -> {
-            Member member = event.getRowValue();
+            MemberDTO member = event.getRowValue();
             member.setFullName(event.getNewValue());
             managemembercontroller.updateMember(member);
         });
         emailColumn.setOnEditCommit(event ->{
-            Member member = event.getRowValue();
+            MemberDTO member = event.getRowValue();
             member.setEmail(event.getNewValue());
             managemembercontroller.updateMember(member);
         });
         phonenumberColumn.setOnEditCommit(event ->{
-            Member member = event.getRowValue();
+            MemberDTO member = event.getRowValue();
             member.setPhoneNumber(event.getNewValue());
             managemembercontroller.updateMember(member);
         });
     }
 
     private void setUpActionColumn() {
-        actionColumn.setCellFactory(column -> new TableCell<Member,Void>(){
+        actionColumn.setCellFactory(column -> new TableCell<MemberDTO,Void>(){
             private final Button editButton = new Button("Edit");
             private final Button deleteButton = new Button("Delete");
 
@@ -122,11 +121,11 @@ public class Managememberpagecontroller {
                     emailColumn.setCellFactory(TextFieldTableCell.forTableColumn());
                     phonenumberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-                    Member member=getTableView().getItems().get(getIndex());
+                    MemberDTO member=getTableView().getItems().get(getIndex());
 
                 });
                 deleteButton.setOnAction(event -> {
-                    Member member=getTableView().getItems().get(getIndex());
+                    MemberDTO member=getTableView().getItems().get(getIndex());
 
                     try {
                         if(managemembercontroller.hasBorrowingRecords(member)) {

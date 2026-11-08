@@ -1,6 +1,6 @@
 package model;
 
-public class Member {
+public class MemberDTO {
 
     private String memberId;
     private String fullName;
@@ -9,7 +9,7 @@ public class Member {
     private String address;
 
 
-    public Member(String memberId, String fullName, String email, String phoneNumber, String address) {
+    public MemberDTO(String memberId, String fullName, String email, String phoneNumber, String address) {
         this.memberId = memberId;
         this.fullName = fullName;
         this.email = email;
@@ -17,11 +17,11 @@ public class Member {
         this.address = address;
     }
 
-    public Member() {
+    public MemberDTO() {
 
     }
 
-    public Member(String memberId,String fullName,String email,String phoneNumber) {
+    public MemberDTO(String memberId, String fullName, String email, String phoneNumber) {
         this.memberId = memberId;
         this.fullName = fullName;
         this.email = email;

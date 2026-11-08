@@ -2,8 +2,8 @@ package controller.books;
 
 import db.DBConnection;
 import javafx.scene.control.Alert;
-import model.Book;
-import model.Member;
+import model.BookDTO;
+import model.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -17,9 +17,9 @@ public class Issuebookcontroller {
 
     Connection connection = DBConnection.getInstance().getConnection();
 
-    public List<Book> getAllBooks() {
+    public List<BookDTO> getAllBooks() {
 
-        List<Book> books = new ArrayList<>();
+        List<BookDTO> books = new ArrayList<>();
 
         String SQL = "SELECT * FROM books";
 
@@ -29,7 +29,7 @@ public class Issuebookcontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Book book = new Book();
+                BookDTO book = new BookDTO();
                 book.setBookId(resultSet.getString("book_id"));
                 book.setBookTitle(resultSet.getString("book_title"));
 
@@ -42,9 +42,9 @@ public class Issuebookcontroller {
 
     }
 
-    public List<Member> getAllMembers() {
+    public List<MemberDTO> getAllMembers() {
 
-        List<Member> members = new ArrayList<>();
+        List<MemberDTO> members = new ArrayList<>();
 
         String SQL = "SELECT * FROM members;";
 
@@ -54,7 +54,7 @@ public class Issuebookcontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Member member = new Member();
+                MemberDTO member = new MemberDTO();
                 member.setMemberId(resultSet.getString("member_id"));
                 member.setFullName(resultSet.getString("full_name"));
 

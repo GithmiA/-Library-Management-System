@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.Borrowing;
+import model.BorrowingDTO;
 
 
 import java.io.IOException;
@@ -20,34 +20,34 @@ import java.io.IOException;
 public class Borrowinghistorypagecontroller {
 
     @FXML
-    private TableColumn<Borrowing, String> bookTitleColumn;
+    private TableColumn<BorrowingDTO, String> bookTitleColumn;
 
     @FXML
     private Button btnBack;
 
     @FXML
-    private TableColumn<Borrowing, String> dueDateColumn;
+    private TableColumn<BorrowingDTO, String> dueDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> issueDateColumn;
+    private TableColumn<BorrowingDTO, String> issueDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> memberIdColumn;
+    private TableColumn<BorrowingDTO, String> memberIdColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> returnDateColumn;
+    private TableColumn<BorrowingDTO, String> returnDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> statusColumn;
+    private TableColumn<BorrowingDTO, String> statusColumn;
 
     @FXML
-    private TableView<Borrowing> tblTableView;
+    private TableView<BorrowingDTO> tblTableView;
 
     @FXML
     private TextField txtSearchById;
 
     Borrowinghistorycontroller borrowinghistorycontroller = new Borrowinghistorycontroller();
-    Borrowing borrowing = new Borrowing();
+    BorrowingDTO borrowing = new BorrowingDTO();
 
     @FXML
     void backOnAction(ActionEvent event) {

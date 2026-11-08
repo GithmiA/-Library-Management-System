@@ -1,7 +1,7 @@
 package model;
 
 
-public class ReturnBook {
+public class ReturnBookDTO {
 
     private final String memberId;
     private final String name;
@@ -11,7 +11,7 @@ public class ReturnBook {
     private final String dueDate;
     private final String status;
 
-    public ReturnBook(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate,String status) {
+    public ReturnBookDTO(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate, String status) {
         this.memberId = memberId;
         this.name = name;
         this.phoneNumber = phoneNumber;

@@ -3,7 +3,7 @@ package controller.books;
 import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Borrowing;
+import model.BorrowingDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,9 +14,9 @@ public class Borrowinghistorycontroller {
 
      Connection connection = DBConnection.getInstance().getConnection();
 
-    ObservableList<Borrowing> list = FXCollections.observableArrayList();
+    ObservableList<BorrowingDTO> list = FXCollections.observableArrayList();
 
-    public ObservableList<Borrowing> loadDetails() {
+    public ObservableList<BorrowingDTO> loadDetails() {
 
 
 
@@ -28,7 +28,7 @@ public class Borrowinghistorycontroller {
 
             while (resultSet.next()) {
 
-                Borrowing borrowing = new Borrowing(
+                BorrowingDTO borrowing = new BorrowingDTO(
                         resultSet.getString("member_id"),
                         resultSet.getString("book_title"),
                         resultSet.getDate("issue_date").toString(),
@@ -49,7 +49,7 @@ public class Borrowinghistorycontroller {
         }
     }
 
-    public ObservableList<Borrowing> searchData(String searchId) {
+    public ObservableList<BorrowingDTO> searchData(String searchId) {
 
         String SQL = "SELECT * FROM borrowing WHERE borrowing.member_id = ?";
         try {
@@ -58,7 +58,7 @@ public class Borrowinghistorycontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Borrowing borrowing = new Borrowing(
+                BorrowingDTO borrowing = new BorrowingDTO(
                         resultSet.getString("member_id"),
                         resultSet.getString("book_title"),
                         resultSet.getDate("issue_date").toString(),

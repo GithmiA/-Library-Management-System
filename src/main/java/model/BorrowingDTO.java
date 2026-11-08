@@ -1,6 +1,6 @@
 package model;
 
-public class Borrowing {
+public class BorrowingDTO {
 
     private String memberId;
     private String bookTitle;
@@ -9,14 +9,14 @@ public class Borrowing {
     private String returnDate;
     private String status;
 
-    public Borrowing(String memberId,String bookTitle, String issueDate, String dueDate, String status) {
+    public BorrowingDTO(String memberId, String bookTitle, String issueDate, String dueDate, String status) {
         this.memberId = memberId;
         this.bookTitle = bookTitle;
         this.issueDate = issueDate;
         this.dueDate = dueDate;
         this.status = status;
     }
-    public Borrowing() {
+    public BorrowingDTO() {
 
     }
 

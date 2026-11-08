@@ -1,10 +1,9 @@
 package controller.members;
 
-import com.mysql.cj.protocol.a.BinaryResultsetReader;
 import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Member;
+import model.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,9 +15,9 @@ public class Managemembercontroller {
     Connection connection = DBConnection.getInstance().getConnection();
 
 
-    public ObservableList<Member> loadTable() {
+    public ObservableList<MemberDTO> loadTable() {
 
-        ObservableList<Member> members = FXCollections.observableArrayList();
+        ObservableList<MemberDTO> members = FXCollections.observableArrayList();
 
 
         String SQL = "SELECT * FROM members";
@@ -28,7 +27,7 @@ public class Managemembercontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Member member = new Member(
+                MemberDTO member = new MemberDTO(
                         resultSet.getString("member_id"),
                         resultSet.getString("full_name"),
                         resultSet.getString("email"),
@@ -43,11 +42,11 @@ public class Managemembercontroller {
         }
     }
 
-    public void editMember(Member member) {
+    public void editMember(MemberDTO member) {
 
     }
 
-    public void updateMember(Member member) {
+    public void updateMember(MemberDTO member) {
 
         String SQL= " UPDATE members SET full_name = ?," + "email = ?,phone_number = ?" + "WHERE members.member_id =?;";
 
@@ -65,7 +64,7 @@ public class Managemembercontroller {
         }
     }
 
-    public boolean deleteMember(Member member) {
+    public boolean deleteMember(MemberDTO member) {
         String SQL = "DELETE FROM members WHERE members.member_id = ?;";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
@@ -76,7 +75,7 @@ public class Managemembercontroller {
             throw new RuntimeException(e);
         }
     }
-    public boolean hasBorrowingRecords(Member member) {
+    public boolean hasBorrowingRecords(MemberDTO member) {
 
         String SQL = "SELECT 1 FROM borrowing " + "WHERE borrowing.member_id = ? LIMIT 1;";
 
@@ -93,9 +92,9 @@ public class Managemembercontroller {
 
     }
 
-    public ObservableList<Member> searchDate(String searchId) {
+    public ObservableList<MemberDTO> searchDate(String searchId) {
 
-        ObservableList<Member> list = FXCollections.observableArrayList();
+        ObservableList<MemberDTO> list = FXCollections.observableArrayList();
 
         String SQL = "SELECT * FROM members WHERE members.member_id = ?;";
 
@@ -106,7 +105,7 @@ public class Managemembercontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                Member member = new Member(
+                MemberDTO member = new MemberDTO(
                         resultSet.getString("member_id"),
                         resultSet.getString("full_name"),
                         resultSet.getString("email"),
