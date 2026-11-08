@@ -13,7 +13,6 @@ public class BookDTO {
 
     }
 
-
     public String getBookId() {
         return bookId;
     }

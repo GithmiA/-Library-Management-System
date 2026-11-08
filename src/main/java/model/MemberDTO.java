@@ -13,14 +13,6 @@ public class MemberDTO {
 
     }
 
-    public MemberDTO(String memberId, String fullName, String email, String phoneNumber) {
-        this.memberId = memberId;
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-
-    }
-
     public void setMemberId(String memberId) {
         this.memberId = memberId;
     }

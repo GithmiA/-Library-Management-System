@@ -27,12 +27,13 @@ public class Managemembercontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                MemberDTO member = new MemberDTO(
-                        resultSet.getString("member_id"),
-                        resultSet.getString("full_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("phone_number")
-                );
+                MemberDTO member = new MemberDTO();
+
+                member.setMemberId(resultSet.getString("member_id"));
+                member.setFullName(resultSet.getString("full_name"));
+                member.setEmail(resultSet.getString("email"));
+                member.setPhoneNumber(resultSet.getString("phone_number"));
+
                 members.add(member);
             }
             return members;
@@ -40,10 +41,6 @@ public class Managemembercontroller {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void editMember(MemberDTO member) {
-
     }
 
     public void updateMember(MemberDTO member) {
@@ -105,12 +102,13 @@ public class Managemembercontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()){
-                MemberDTO member = new MemberDTO(
-                        resultSet.getString("member_id"),
-                        resultSet.getString("full_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("phone_number")
-                );
+                MemberDTO member = new MemberDTO();member.setMemberId(resultSet.getString("member_id"));
+                member.setFullName(resultSet.getString("full_name"));
+                member.setEmail(resultSet.getString("email"));
+                member.setPhoneNumber(resultSet.getString("phone_number"));
+
+
+
                 list.add(member);
             }
             return list;

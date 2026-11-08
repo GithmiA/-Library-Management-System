@@ -12,15 +12,7 @@ public class ReturnBookDTO {
     private  String fullName;
     private  String issueDate;
 
-//    public ReturnBookDTO(String memberId,String fullName,String phoneNumber,String bookTitle,String borrowedDate,String dueDate,String status) {
-//        this.memberId = memberId;
-//        this.fullName = fullName;
-//        this.phoneNumber = phoneNumber;
-//        this.bookTitle = bookTitle;
-//        this.borrowedDate = borrowedDate;
-//        this.dueDate = dueDate;
-//        this.status = status;
-//    }
+
     public  ReturnBookDTO() {
 
     }
