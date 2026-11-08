@@ -98,7 +98,7 @@ public class Returnbookpagecontroller {
     @FXML
     void searchBook(MouseEvent event) {
 
-        ReturnBookDTO book = returnbookcontroller.load(txtSearchBox.getText());
+        returnbookcontroller.load(txtSearchBox.getText());
 
             if(book != null) {
                 lblMemberId.setText(book.getMemberId());

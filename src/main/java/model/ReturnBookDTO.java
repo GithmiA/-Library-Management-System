@@ -10,8 +10,14 @@ public class ReturnBookDTO {
     private  String borrowedDate;
     private  String dueDate;
     private  String status;
+    private  String fullName;
+    private  String issueDate;
 
     public ReturnBookDTO() {
+
+    }
+
+    public ReturnBookDTO(String memberId,String fullname,String phoneNumber,String bookTitle,String issueDate,String dueDate,String status) {
 
     }
 
@@ -41,6 +47,22 @@ public class ReturnBookDTO {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(String issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getMemberId() {

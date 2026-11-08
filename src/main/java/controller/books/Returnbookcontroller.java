@@ -11,7 +11,7 @@ public class Returnbookcontroller {
 
     Connection connection = DBConnection.getInstance().getConnection();
 
-    public ReturnBookDTO load(String searchId) {
+    public void load(String searchId) {
 
         String SQL_1 = "SELECT * FROM members INNER JOIN borrowing ON members.member_id = borrowing.member_id WHERE borrowing.book_id = ? AND borrowing.return_date IS NULL";
 
@@ -39,18 +39,18 @@ public class Returnbookcontroller {
 
             if(resultSet.next()) {
 
+                ReturnBookDTO returnBookDTO = new ReturnBookDTO();
 
-//                return new ReturnBookDTO(
-//                            resultSet.getString("member_id"),
-//                            resultSet.getString("full_name"),
-//                            resultSet.getString("phone_number"),
-//                            resultSet.getString("book_title"),
-//                            resultSet.getDate("issue_date").toString(),
-//                            resultSet.getDate("due_date").toString(),
-//                            resultSet.getString("status")
-//                            );
+                returnBookDTO.setMemberId(resultSet.getString("member_id"));
+                returnBookDTO.setFullName(resultSet.getString("full_name"));
+                returnBookDTO.setPhoneNumber(resultSet.getString("phone_number"));
+                returnBookDTO.setBookTitle(resultSet.getString("book_title"));
+                returnBookDTO.setIssueDate(resultSet.getDate("issue_date").toString());
+                returnBookDTO.setDueDate(resultSet.getDate("due_date").toString());
+                returnBookDTO.setStatus(resultSet.getString("status"));
+
             }
-            return null;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
