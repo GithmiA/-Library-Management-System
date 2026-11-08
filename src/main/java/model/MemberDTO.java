@@ -9,14 +9,6 @@ public class MemberDTO {
     private String address;
 
 
-    public MemberDTO(String memberId, String fullName, String email, String phoneNumber, String address) {
-        this.memberId = memberId;
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-    }
-
     public MemberDTO() {
 
     }

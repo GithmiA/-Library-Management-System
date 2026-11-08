@@ -46,7 +46,15 @@ public class Addmemberpagecontroller {
     @FXML
     void addMemberOnAction(ActionEvent event) {
 
-        addmembercontroller.addMember(txtMemberId.getText(),txtFullName.getText(),txtEmail.getText(),txtPhoneNumber.getText(),txtAddress.getText());
+        MemberDTO memberDTO = new MemberDTO();
+
+        memberDTO.setMemberId(txtMemberId.getText());
+        memberDTO.setFullName(txtFullName.getText());
+        memberDTO.setEmail(txtEmail.getText());
+        memberDTO.setPhoneNumber(txtPhoneNumber.getText());
+        memberDTO.setAddress(txtAddress.getText());
+
+        addmembercontroller.addMember(memberDTO);
 
         clearField();
     }

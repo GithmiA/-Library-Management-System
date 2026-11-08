@@ -2,6 +2,7 @@ package controller.members;
 
 import db.DBConnection;
 import javafx.scene.control.Alert;
+import model.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +12,7 @@ public class Addmembercontroller {
 
     Connection connection = DBConnection.getInstance().getConnection();
 
-    public void addMember(String memberId,String name,String memberEmail,String phoneNumber,String memberAddress) {
+    public void addMember(MemberDTO memberDTO) {
 
         String SQL = "INSERT INTO members(member_id,full_name,email,phone_number,address) VALUES (?,?,?,?,?);";
 
@@ -21,11 +22,11 @@ public class Addmembercontroller {
             try {
                 preparedStatement = connection.prepareStatement(SQL);
 
-                preparedStatement.setString(1,memberId);
-                preparedStatement.setString(2,name);
-                preparedStatement.setString(3,memberEmail);
-                preparedStatement.setString(4,phoneNumber);
-                preparedStatement.setString(5,memberAddress);
+                preparedStatement.setString(1,memberDTO.getMemberId());
+                preparedStatement.setString(2, memberDTO.getFullName());
+                preparedStatement.setString(3, memberDTO.getEmail());
+                preparedStatement.setString(4, memberDTO.getPhoneNumber());
+                preparedStatement.setString(5, memberDTO.getAddress());
 
                 preparedStatement.executeUpdate();
 
