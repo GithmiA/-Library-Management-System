@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.LoginDTO;
 
 import java.io.IOException;
 
@@ -37,7 +38,12 @@ public class loginpagecontroller {
 
     @FXML
     void loginOnAction(ActionEvent event) {
-        if(Logincontroller.nameandpasswordcheck(txtusername.getText(),txtpassword.getText())){
+
+        LoginDTO loginDTO = new LoginDTO();
+        loginDTO.setUserName(txtusername.getText());
+        loginDTO.setPassword(txtpassword.getText());
+
+        if(Logincontroller.nameandpasswordcheck(loginDTO)) {
             Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
             try {
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
