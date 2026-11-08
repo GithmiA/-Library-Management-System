@@ -3,6 +3,7 @@ package controller.books;
 import db.DBConnection;
 import javafx.scene.control.Alert;
 import model.BookDTO;
+import model.BorrowingDTO;
 import model.MemberDTO;
 
 import java.sql.Connection;
@@ -67,7 +68,7 @@ public class Issuebookcontroller {
         return members;
 
     }
-    public void issueBook(String memberId, String name, String bookId, String bookTitle, LocalDate issueDate, LocalDate dueDate) {
+    public void issueBook(BorrowingDTO borrowingDTO) {
 
         String SQL = "INSERT INTO borrowing(member_id,full_name,book_id,book_title,issue_date,due_date) VALUES (?,?,?,?,?,?);";
 
@@ -75,12 +76,12 @@ public class Issuebookcontroller {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1,memberId);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,bookId);
-            preparedStatement.setString(4,bookTitle);
-            preparedStatement.setDate(5, Date.valueOf(issueDate));
-            preparedStatement.setDate(6,Date.valueOf(dueDate));
+            preparedStatement.setString(1,borrowingDTO.getMemberId());
+            preparedStatement.setString(2,borrowingDTO.getFullName());
+            preparedStatement.setString(3,borrowingDTO.getBookId());
+            preparedStatement.setString(4, borrowingDTO.getBookTitle());
+            preparedStatement.setDate(5, Date.valueOf(borrowingDTO.getIssueDate()));
+            preparedStatement.setDate(6,Date.valueOf(borrowingDTO.getDueDate()));
 
 
             preparedStatement.executeUpdate();

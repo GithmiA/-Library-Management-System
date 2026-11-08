@@ -3,24 +3,45 @@ package model;
 
 public class ReturnBookDTO {
 
-    private final String memberId;
-    private final String name;
-    private final String phoneNumber;
-    private final String bookTitle;
-    private final String borrowedDate;
-    private final String dueDate;
-    private final String status;
+    private  String memberId;
+    private  String name;
+    private  String phoneNumber;
+    private  String bookTitle;
+    private  String borrowedDate;
+    private  String dueDate;
+    private  String status;
 
-    public ReturnBookDTO(String memberId, String name, String phoneNumber, String bookTitle, String borrowedDate, String dueDate, String status) {
-        this.memberId = memberId;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.bookTitle = bookTitle;
-        this.borrowedDate = borrowedDate;
-        this.dueDate = dueDate;
-        this.status = status;
+    public ReturnBookDTO() {
+
     }
 
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setBookTitle(String bookTitle) {
+        this.bookTitle = bookTitle;
+    }
+
+    public void setBorrowedDate(String borrowedDate) {
+        this.borrowedDate = borrowedDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getMemberId() {
         return memberId;

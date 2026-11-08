@@ -65,15 +65,17 @@ public class Issuebookpagecontroller {
     @FXML
     void issueBookOnAction(ActionEvent event) {
 
+        BorrowingDTO borrowingDTO = new BorrowingDTO();
+
         if( (txtSelectBook.getValue() != null) && (txtSelectMemeber.getValue() != null) ) {
-            issuebookcontroller.issueBook(
-                    txtSelectMemeber.getValue().getMemberId(),
-                    txtSelectMemeber.getValue().getFullName(),
-                    txtSelectBook.getValue().getBookId(),
-                    txtSelectBook.getValue().getBookTitle(),
-                    txtIssueBook.getValue(),
-                    txtDueDate.getValue()
-            );
+            borrowingDTO.setMemberId(txtSelectMemeber.getValue().getMemberId());
+            borrowingDTO.setFullName(txtSelectMemeber.getValue().getFullName());
+            borrowingDTO.setBookId(txtSelectBook.getValue().getBookId());
+            borrowingDTO.setBookTitle(txtSelectBook.getValue().getBookTitle());
+            borrowingDTO.setIssueDate(txtIssueBook.getValue().toString());
+            borrowingDTO.setDueDate(txtDueDate.getValue().toString());
+
+            issuebookcontroller.issueBook(borrowingDTO);
 
         }
         clearFields();
