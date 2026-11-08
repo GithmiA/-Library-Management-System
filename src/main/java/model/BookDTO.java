@@ -6,12 +6,13 @@ public class BookDTO {
     private String bookTitle;
     private String bookAuthor;
     private String bookCategory;
-    private String bookPublishYear;
-    private String bookQuantity;
+    private Integer bookPublishYear;
+    private Integer bookQuantity;
 
     public BookDTO() {
 
     }
+
 
     public String getBookId() {
         return bookId;
@@ -45,19 +46,19 @@ public class BookDTO {
         this.bookCategory = bookCategory;
     }
 
-    public String getBookPublishYear() {
+    public Integer getBookPublishYear() {
         return bookPublishYear;
     }
 
-    public void setBookPublishYear(String bookPublishYear) {
+    public void setBookPublishYear(Integer bookPublishYear) {
         this.bookPublishYear = bookPublishYear;
     }
 
-    public String getBookQuantity() {
+    public Integer getBookQuantity() {
         return bookQuantity;
     }
 
-    public void setBookQuantity(String bookQuantity) {
+    public void setBookQuantity(Integer bookQuantity) {
         this.bookQuantity = bookQuantity;
     }
 

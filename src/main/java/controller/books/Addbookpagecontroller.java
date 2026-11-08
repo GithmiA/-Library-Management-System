@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.BookDTO;
 
 import java.io.IOException;
 
@@ -36,7 +37,14 @@ public class Addbookpagecontroller {
     @FXML
     void addBookOnAction(ActionEvent event) {
 
-        addbookcontroller.addStudent(txtBookId.getText(),txtBookTitle.getText(),txtAuthor.getText(),txtCategory.getText(),Integer.parseInt(txtPublishYear.getText()),Integer.parseInt(txtQuantity.getText()));
+        BookDTO bookDTO = new BookDTO();
+        bookDTO.setBookId(txtBookId.getText());
+        bookDTO.setBookTitle(txtBookTitle.getText());
+        bookDTO.setBookAuthor(txtAuthor.getText());
+        bookDTO.setBookCategory(txtCategory.getText());
+        bookDTO.setBookPublishYear(Integer.parseInt(txtPublishYear.getText()));
+        bookDTO.setBookQuantity(Integer.parseInt(txtQuantity.getText()));
+
         clearField();
     }
 
