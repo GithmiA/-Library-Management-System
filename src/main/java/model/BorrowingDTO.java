@@ -13,13 +13,13 @@ public class BorrowingDTO {
     private String returnDate;
     private String status;
 
-    public BorrowingDTO(String memberId, String bookTitle, String issueDate, String dueDate, String status) {
-        this.memberId = memberId;
-        this.bookTitle = bookTitle;
-        this.issueDate = issueDate;
-        this.dueDate = dueDate;
-        this.status = status;
-    }
+//    public BorrowingDTO(String memberId, String bookTitle, String issueDate, String dueDate, String status) {
+//        this.memberId = memberId;
+//        this.bookTitle = bookTitle;
+//        this.issueDate = issueDate;
+//        this.dueDate = dueDate;
+//        this.status = status;
+//    }
     public BorrowingDTO() {
 
     }

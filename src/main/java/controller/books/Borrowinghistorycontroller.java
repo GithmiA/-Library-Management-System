@@ -18,8 +18,6 @@ public class Borrowinghistorycontroller {
 
     public ObservableList<BorrowingDTO> loadDetails() {
 
-
-
         String SQL = "SELECT * FROM borrowing;";
 
         try {
@@ -27,21 +25,21 @@ public class Borrowinghistorycontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
+                BorrowingDTO borrowingDTO = new BorrowingDTO();
 
-                BorrowingDTO borrowing = new BorrowingDTO(
-                        resultSet.getString("member_id"),
-                        resultSet.getString("book_title"),
-                        resultSet.getDate("issue_date").toString(),
-                        resultSet.getDate("due_date").toString(),
-                        resultSet.getString("status")
-                );
-                String returnDate = resultSet.getString("return_date");
-                if (returnDate == null) {
-                    borrowing.setReturnDate(" - ");
+                borrowingDTO.setMemberId(resultSet.getString("member_id"));
+                borrowingDTO.setBookTitle(resultSet.getString("book_title"));
+                borrowingDTO.setIssueDate(resultSet.getDate("issue_date").toString());
+                borrowingDTO.setDueDate(resultSet.getDate("due_date").toString());
+                borrowingDTO.setStatus(resultSet.getString("status"));
+
+                if (resultSet.getString("return_date") == null) {
+                    borrowingDTO.setReturnDate(" - ");
                 }else {
-                    borrowing.setReturnDate(resultSet.getString("return_date"));
+                    borrowingDTO.setReturnDate(resultSet.getString("return_date"));
                 }
-                list.add(borrowing);
+
+                list.add(borrowingDTO);
             }
             return list;
         } catch (SQLException e) {
@@ -58,25 +56,22 @@ public class Borrowinghistorycontroller {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                BorrowingDTO borrowing = new BorrowingDTO(
-                        resultSet.getString("member_id"),
-                        resultSet.getString("book_title"),
-                        resultSet.getDate("issue_date").toString(),
-                        resultSet.getDate("due_date").toString(),
-                        resultSet.getString("status")
-                );
+                BorrowingDTO borrowingDTO = new BorrowingDTO();
+                borrowingDTO.setMemberId(resultSet.getString("member_id"));
+                borrowingDTO.setBookTitle(resultSet.getString("book_title"));
+                borrowingDTO.setIssueDate(resultSet.getDate("issue_date").toString());
+                borrowingDTO.setDueDate(resultSet.getDate("due_date").toString());
+                borrowingDTO.setStatus(resultSet.getString("status"));
 
-                String returnDate = resultSet.getString("return_date");
-                if (returnDate == null) {
-                    borrowing.setReturnDate(" - ");
+                if (resultSet.getString("return_date") == null) {
+                    borrowingDTO.setReturnDate(" - ");
                 }else {
-                    borrowing.setReturnDate(resultSet.getString("return_date"));
+                   borrowingDTO.setReturnDate(resultSet.getString("return_date"));
                 }
-                list.add(borrowing);
+                list.add(borrowingDTO);
 
             }
             return list;
-
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
