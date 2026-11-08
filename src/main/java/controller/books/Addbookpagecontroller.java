@@ -38,12 +38,15 @@ public class Addbookpagecontroller {
     void addBookOnAction(ActionEvent event) {
 
         BookDTO bookDTO = new BookDTO();
+
         bookDTO.setBookId(txtBookId.getText());
         bookDTO.setBookTitle(txtBookTitle.getText());
         bookDTO.setBookAuthor(txtAuthor.getText());
         bookDTO.setBookCategory(txtCategory.getText());
         bookDTO.setBookPublishYear(Integer.parseInt(txtPublishYear.getText()));
         bookDTO.setBookQuantity(Integer.parseInt(txtQuantity.getText()));
+
+        addbookcontroller.addBook(bookDTO);
 
         clearField();
     }

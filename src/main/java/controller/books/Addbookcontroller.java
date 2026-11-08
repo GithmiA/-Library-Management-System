@@ -2,6 +2,7 @@ package controller.books;
 
 import db.DBConnection;
 import javafx.scene.control.Alert;
+import model.BookDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ public class Addbookcontroller {
 
     Connection connection = DBConnection.getInstance().getConnection();
 
-    public void addStudent(String bookId,String bookTitle,String bookAuthor,String bookCategory,Integer bookPublishYear,Integer bookQuantity) {
+    public void addBook(BookDTO bookDTO) {
 
 
         String SQL = "INSERT INTO books(book_id,book_title,author,category,publish_year,quantity) VALUES (?,?,?,?,?,?);";
@@ -21,12 +22,12 @@ public class Addbookcontroller {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
-            preparedStatement.setString(1,bookId);
-            preparedStatement.setString(2,bookTitle);
-            preparedStatement.setString(3,bookAuthor);
-            preparedStatement.setString(4,bookCategory);
-            preparedStatement.setInt(5,bookPublishYear);
-            preparedStatement.setInt(6,bookQuantity);
+            preparedStatement.setString(1, bookDTO.getBookId());
+            preparedStatement.setString(2,bookDTO.getBookTitle());
+            preparedStatement.setString(3, bookDTO.getBookAuthor());
+            preparedStatement.setString(4, bookDTO.getBookCategory());
+            preparedStatement.setInt(5,bookDTO.getBookPublishYear());
+            preparedStatement.setInt(6,bookDTO.getBookQuantity());
 
             preparedStatement.executeUpdate();
 
