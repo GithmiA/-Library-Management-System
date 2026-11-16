@@ -1,6 +1,5 @@
-package controller;
+package controller.books;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,69 +12,61 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.Borrowing;
-import model.BorrowingStore;
+import model.BorrowingDTO;
+
 
 import java.io.IOException;
 
-public class borrowinghistorycontroller {
+public class Borrowinghistorypagecontroller {
 
     @FXML
-    private TableColumn<Borrowing, String> bookTitleColumn;
+    private TableColumn<BorrowingDTO, String> bookTitleColumn;
 
     @FXML
     private Button btnBack;
 
     @FXML
-    private TableColumn<Borrowing, String> dueDateColumn;
+    private TableColumn<BorrowingDTO, String> dueDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> issueDateColumn;
+    private TableColumn<BorrowingDTO, String> issueDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> memberIdColumn;
+    private TableColumn<BorrowingDTO, String> memberIdColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> returnDateColumn;
+    private TableColumn<BorrowingDTO, String> returnDateColumn;
 
     @FXML
-    private TableColumn<Borrowing, String> statusColumn;
+    private TableColumn<BorrowingDTO, String> statusColumn;
 
     @FXML
-    private TableView<Borrowing> tblTableView;
+    private TableView<BorrowingDTO> tblTableView;
 
     @FXML
     private TextField txtSearchById;
+
+    Borrowinghistorycontroller borrowinghistorycontroller = new Borrowinghistorycontroller();
+
 
     @FXML
     void backOnAction(ActionEvent event) {
         Stage stage=(Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         stage.show();
-
     }
 
     @FXML
     void searchOnAction(MouseEvent event) {
+        tblTableView.getItems().clear();
         String searchId = txtSearchById.getText().trim();
 
-        if(searchId.isEmpty()) {
-            tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
-            return;
-        }
-        FXCollections.observableArrayList();
+        tblTableView.setItems(borrowinghistorycontroller.searchData(searchId));
 
-        javafx.collections.ObservableList<Borrowing> searchResult = FXCollections.observableArrayList();
-        for (Borrowing borrowing : BorrowingStore.borrowings) {
-            if(borrowing.getMemberId().equalsIgnoreCase(searchId)) {
-                searchResult.add(borrowing);
-            }
-        }
-tblTableView.setItems(searchResult);
     }
     @FXML
     public void initialize() {
@@ -86,7 +77,16 @@ tblTableView.setItems(searchResult);
         returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        tblTableView.setItems(FXCollections.observableArrayList(BorrowingStore.borrowings));
-    }
+        tblTableView.setItems(borrowinghistorycontroller.loadDetails());
 
+        txtSearchById.textProperty().addListener(
+                (observable,oldValue,newValue) -> {
+                    if (newValue == null || newValue.trim().isEmpty()) {
+                        tblTableView.getItems().clear();
+                        tblTableView.setItems(borrowinghistorycontroller.loadDetails());
+                    }
+                }
+        );
+
+    }
 }

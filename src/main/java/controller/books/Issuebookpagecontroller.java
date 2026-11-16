@@ -1,21 +1,19 @@
-package controller;
+package controller.books;
 
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import model.*;
-
+import java.util.List;
 import java.io.IOException;
 
-public class issuebookcontroller {
+public class Issuebookpagecontroller {
 
     @FXML
     private Button btnBack;
@@ -33,16 +31,18 @@ public class issuebookcontroller {
     private DatePicker txtIssueBook;
 
     @FXML
-    private ComboBox<Book> txtSelectBook;
+    private ComboBox<BookDTO> txtSelectBook;
 
     @FXML
-    private ComboBox<Member> txtSelectMemeber;
+    private ComboBox<MemberDTO> txtSelectMemeber;
+
+    Issuebookcontroller issuebookcontroller = new Issuebookcontroller();
 
     @FXML
     void backOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/maindashboard_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/maindashboard_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +54,7 @@ public class issuebookcontroller {
     void clearOnAction(ActionEvent event) {
         Stage stage=(Stage)((Node) event.getSource()).getScene().getWindow();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/issuebook_page.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/issuebook_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,20 +64,20 @@ public class issuebookcontroller {
 
     @FXML
     void issueBookOnAction(ActionEvent event) {
-        Book book = txtSelectBook.getValue();
-        Member member = txtSelectMemeber.getValue();
 
-        if (book == null || member == null || txtIssueBook.getValue() == null || txtDueDate.getValue() == null){
-            System.out.println("select all details");
-            return;
+        BorrowingDTO borrowingDTO = new BorrowingDTO();
+
+        if( (txtSelectBook.getValue() != null) && (txtSelectMemeber.getValue() != null) ) {
+            borrowingDTO.setMemberId(txtSelectMemeber.getValue().getMemberId());
+            borrowingDTO.setFullName(txtSelectMemeber.getValue().getFullName());
+            borrowingDTO.setBookId(txtSelectBook.getValue().getBookId());
+            borrowingDTO.setBookTitle(txtSelectBook.getValue().getBookTitle());
+            borrowingDTO.setIssueDate(txtIssueBook.getValue().toString());
+            borrowingDTO.setDueDate(txtDueDate.getValue().toString());
+
+            issuebookcontroller.issueBook(borrowingDTO);
+
         }
-        Borrowing borrowing = new Borrowing(member.getMemberId(), member.getFullName(), book.getBookId(), book.getBookTitle(), txtIssueBook.getValue().toString(),txtDueDate.getValue().toString());
-        BorrowingStore.borrowings.add(borrowing);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText(null);
-        alert.setContentText("Book issued Successfully!");
-        alert.showAndWait();
         clearFields();
 
     }
@@ -91,9 +91,11 @@ public class issuebookcontroller {
 
     @FXML
     public void initialize(){
+        List<BookDTO> books = issuebookcontroller.getAllBooks();
+        List<MemberDTO> members = issuebookcontroller.getAllMembers();
 
-        txtSelectBook.setItems(FXCollections.observableArrayList(BookStore.books));
-        txtSelectMemeber.setItems(FXCollections.observableArrayList(MemberStore.members));
+        txtSelectBook.getItems().addAll(books);
+        txtSelectMemeber.getItems().addAll(members);
     }
 
 }

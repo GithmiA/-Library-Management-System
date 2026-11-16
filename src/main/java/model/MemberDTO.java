@@ -1,15 +1,17 @@
 package model;
 
-public class Member {
-
-    public Member() {
-    }
+public class MemberDTO {
 
     private String memberId;
     private String fullName;
     private String email;
     private String phoneNumber;
     private String address;
+
+
+    public MemberDTO() {
+
+    }
 
     public void setMemberId(String memberId) {
         this.memberId = memberId;
@@ -28,14 +30,6 @@ public class Member {
     }
 
     public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Member(String memberId, String fullName, String email, String phoneNumber, String address) {
-        this.memberId = memberId;
-        this.fullName = fullName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
         this.address = address;
     }
 

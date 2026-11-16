@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 public class invalidlogincontroller {
 }

@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="328.0" styleClass="invalid-box" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="328.0" styleClass="invalid-box" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="80.0" prefWidth="328.0" styleClass="invalid-box" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="69.0" fitWidth="60.0" layoutX="126.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/Invaliddata_img.png" />
+                  <Image url="@../img/Invaliddata_img.png" />
                </image>
             </ImageView>
          </children>
